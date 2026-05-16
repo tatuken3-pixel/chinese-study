@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中国語音読教材 Day 1：学食で昼ごはんを決める</title>
+<style>
+  :root {
+    --bg:#f6f7f8; --card:#fff; --text:#222; --muted:#5d6670; --line:#e7e7e7; --accent:#1f6feb; --soft:#eef5ff; --warm:#fff8e6; --green:#ecfff3;
+  }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif; line-height:1.65; margin:0; background:var(--bg); color:var(--text); }
+  header { padding:24px 18px; background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10; }
+  .wrap, main { max-width:1160px; margin:0 auto; }
+  main { padding:18px; }
+  h1 { margin:0 0 4px; font-size:24px; }
+  .subtitle { color:var(--muted); margin:0 0 12px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; margin-bottom:18px; box-shadow:0 2px 12px rgba(0,0,0,.04); }
+  .practice { background:var(--warm); }
+  .goal { background:var(--soft); }
+  h2 { margin:0 0 10px; font-size:20px; }
+  table { width:100%; border-collapse:collapse; }
+  th,td { border-top:1px solid var(--line); padding:10px; vertical-align:top; }
+  th { text-align:left; background:#fafafa; color:#444; }
+  .num { color:var(--muted); width:34px; }
+  .speaker { font-weight:700; width:36px; }
+  .zh { font-size:20px; letter-spacing:.01em; }
+  .py { color:var(--muted); margin-top:4px; }
+  .py-mini { color:var(--muted); font-size:13px; }
+  .audio { min-width:116px; }
+  button { border:1px solid #b9c2cc; background:white; border-radius:999px; padding:7px 11px; margin:3px; cursor:pointer; font-size:14px; }
+  button.primary { background:var(--accent); color:white; border-color:var(--accent); }
+  button:hover { filter:brightness(.96); }
+  .controls { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .mini { color:var(--muted); font-size:14px; }
+  .steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+  .step { background:rgba(255,255,255,.65); border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:12px; }
+  .step strong { display:block; margin-bottom:4px; }
+  .target { font-size:22px; background:white; border-radius:12px; padding:12px; border:1px solid var(--line); }
+  .gloss { margin:0; padding-left:18px; }
+  .nogloss { color:var(--muted); font-size:14px; }
+  details.translation { margin-top:8px; color:#333; }
+  details.translation summary { cursor:pointer; color:var(--accent); font-size:14px; }
+  #status { color:var(--muted); margin-left:6px; }
+  .hint { background:var(--green); border:1px solid #ccebd7; border-radius:12px; padding:12px; margin-bottom:10px; }
+  @media (max-width:820px) {
+    header { position:static; }
+    .steps { grid-template-columns:1fr; }
+    table,thead,tbody,tr,th,td { display:block; }
+    thead { display:none; }
+    tr { border-top:1px solid var(--line); padding:10px 0; }
+    td { border-top:none; padding:4px 0; }
+    .zh { font-size:22px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>中国語音読教材 Day 1：学食で昼ごはんを決める</h1>
+    <p class="subtitle">博士課程の大学生活｜友達との日常会話｜日本語訳は初期非表示｜normal 0.90 / slow 0.70</p>
+    <div class="controls">
+      <button class="primary" onclick="playSequence(normalFiles, 800)">会話全体を再生</button>
+      <button onclick="playSequence(slowFiles, 1000)">会話全体をゆっくり再生</button>
+      <button onclick="playAudio('audio/goal_normal.mp3')">今日のゴール文</button>
+      <button onclick="stopAudio()">停止</button>
+      <span id="status">mp3未生成の場合は generate_audio.py を実行してください。</span>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="card practice">
+    <h2>今日やること：15〜20分</h2>
+    <div class="steps">
+      <div class="step"><strong>1. 聞く：2分</strong>日本語訳を開かず、中文を見ながら全体を聞く。</div>
+      <div class="step"><strong>2. 語注確認：3分</strong>HSK5〜6寄りの語注だけ確認する。</div>
+      <div class="step"><strong>3. ゆっくり音読：5分</strong>slow音声で1文ずつかぶせ読み。</div>
+      <div class="step"><strong>4. 中文だけ：5分</strong>訳を隠したまま普通速度で読む。最後にゴール文を暗唱。</div>
+    </div>
+  </section>
+
+  <section class="card goal">
+    <h2>今日のゴール文</h2>
+    <p class="target">与其下午一直饿着，不如现在好好吃一顿，这样才有精神继续做事。</p>
+    <p class="py">Yǔqí xiàwǔ yìzhí èzhe, bùrú xiànzài hǎohāo chī yí dùn, zhèyàng cái yǒu jīngshen jìxù zuò shì.</p>
+    <details class="translation"><summary>日本語訳を表示</summary><div>午後ずっと空腹でいるより、今ちゃんと一食食べた方がいい。そうすれば元気に作業を続けられる。</div></details>
+    <button onclick="playAudio('audio/goal_normal.mp3')">ゴール文を再生</button>
+    <button onclick="playAudio('audio/goal_slow.mp3')">ゴール文をゆっくり再生</button>
+  </section>
+
+  <section class="card">
+    <h2>会話スクリプト</h2>
+    <div class="hint">まずは中文＋ピンイン＋語注だけで意味を取りにいく練習にしてください。日本語訳は必要な文だけ開きます。</div>
+    <table>
+      <thead><tr><th>#</th><th>話者</th><th>中文 / pinyin / 訳</th><th>語注</th><th>音声</th></tr></thead>
+      <tbody>
+    <tr>
+      <td class="num">1</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">你现在去食堂吗？我正好也想吃午饭。</div>
+        <div class="py">Nǐ xiànzài qù shítáng ma? Wǒ zhènghǎo yě xiǎng chī wǔfàn.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>今から学食行く？ちょうど私も昼ごはんを食べたいところ。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>正好</strong> <span class="py-mini">zhènghǎo</span>：ちょうど、都合よく</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_01_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_01_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">2</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">去啊。我刚才一直在图书馆坐着，肚子已经饿了。</div>
+        <div class="py">Qù a. Wǒ gāngcái yìzhí zài túshūguǎn zuòzhe, dùzi yǐjīng è le.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>行くよ。さっきまでずっと図書館で座っていて、もうお腹が空いた。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>刚才</strong> <span class="py-mini">gāngcái</span>：さっき</li><li><strong>肚子饿</strong> <span class="py-mini">dùzi è</span>：お腹が空く</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_02_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_02_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">3</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">我也是。早上只喝了咖啡，现在有点后悔。</div>
+        <div class="py">Wǒ yě shì. Zǎoshang zhǐ hē le kāfēi, xiànzài yǒudiǎn hòuhuǐ.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>私も。朝コーヒーしか飲んでなくて、今ちょっと後悔してる。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>后悔</strong> <span class="py-mini">hòuhuǐ</span>：後悔する</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_03_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_03_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">4</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">那今天吃点实在的吧，别只买面包。</div>
+        <div class="py">Nà jīntiān chī diǎn shízài de ba, bié zhǐ mǎi miànbāo.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>じゃあ今日はちゃんとしたものを食べよう。パンだけ買うのはやめよう。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>实在的</strong> <span class="py-mini">shízài de</span>：しっかりした、腹持ちのよい</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_04_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_04_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">5</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">说实话，我有点犹豫。食堂的套餐最近好像涨价了。</div>
+        <div class="py">Shuō shíhuà, wǒ yǒudiǎn yóuyù. Shítáng de tàocān zuìjìn hǎoxiàng zhǎngjià le.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>正直ちょっと迷ってる。学食の定食、最近値上がりしたみたい。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>说实话</strong> <span class="py-mini">shuō shíhuà</span>：正直に言うと</li><li><strong>犹豫</strong> <span class="py-mini">yóuyù</span>：迷う、ためらう</li><li><strong>套餐</strong> <span class="py-mini">tàocān</span>：セット、定食</li><li><strong>涨价</strong> <span class="py-mini">zhǎngjià</span>：値上がりする</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_05_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_05_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">6</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">这倒也是。不过如果下午还要待很久，吃太少会没精神。</div>
+        <div class="py">Zhè dào shì. Búguò rúguǒ xiàwǔ hái yào dāi hěn jiǔ, chī tài shǎo huì méi jīngshen.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>それは確かに。でも午後も長くいるなら、食べる量が少なすぎると元気が出ないよ。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>这倒也是</strong> <span class="py-mini">zhè dào yě shì</span>：それは確かにそう</li><li><strong>没精神</strong> <span class="py-mini">méi jīngshen</span>：元気がない、集中力が出ない</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_06_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_06_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">7</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">你说得对。与其下午一直饿着，不如现在好好吃一顿。</div>
+        <div class="py">Nǐ shuō de duì. Yǔqí xiàwǔ yìzhí èzhe, bùrú xiànzài hǎohāo chī yí dùn.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>その通りだね。午後ずっと空腹でいるより、今ちゃんと一食食べた方がいい。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>与其A，不如B</strong> <span class="py-mini">yǔqí A, bùrú B</span>：AするよりBした方がよい</li><li><strong>一顿</strong> <span class="py-mini">yí dùn</span>：一食、一回の食事</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_07_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_07_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">8</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">今天有鸡肉套餐和麻婆豆腐，你想吃哪个？</div>
+        <div class="py">Jīntiān yǒu jīròu tàocān hé mápó dòufu, nǐ xiǎng chī nǎge?</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>今日はチキン定食と麻婆豆腐があるけど、どっち食べたい？</div></details>
+      </td>
+      <td><span class="nogloss">語注なし</span></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_08_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_08_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">9</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">麻婆豆腐听起来不错，可是我怕太辣。</div>
+        <div class="py">Mápó dòufu tīng qǐlái búcuò, kěshì wǒ pà tài là.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>麻婆豆腐よさそうだけど、辛すぎるのが心配。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>听起来</strong> <span class="py-mini">tīng qǐlái</span>：聞いた感じでは、〜そう</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_09_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_09_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">10</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">那可以选鸡肉套餐。味道比较稳定，也不会太油。</div>
+        <div class="py">Nà kěyǐ xuǎn jīròu tàocān. Wèidào bǐjiào wěndìng, yě bú huì tài yóu.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>それならチキン定食にしてもいいね。味が安定しているし、油っこすぎない。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>稳定</strong> <span class="py-mini">wěndìng</span>：安定している</li><li><strong>油</strong> <span class="py-mini">yóu</span>：油っこい</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_10_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_10_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">11</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">可是我昨天也吃了鸡肉。连续两天吃一样的，有点无聊。</div>
+        <div class="py">Kěshì wǒ zuótiān yě chī le jīròu. Liánxù liǎng tiān chī yíyàng de, yǒudiǎn wúliáo.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>でも昨日もチキン食べたんだよね。2日連続で同じものは、ちょっとつまらない。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>连续</strong> <span class="py-mini">liánxù</span>：連続して</li><li><strong>无聊</strong> <span class="py-mini">wúliáo</span>：つまらない、退屈</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_11_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_11_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">12</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">哈哈，这个理由也挺有道理的。</div>
+        <div class="py">Hāhā, zhège lǐyóu yě tǐng yǒu dàolǐ de.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>はは、その理由もけっこう筋が通ってるね。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>有道理</strong> <span class="py-mini">yǒu dàolǐ</span>：筋が通っている、もっともだ</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_12_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_12_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">13</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">要不我们先去看看实物？菜单上的照片有时候不太可靠。</div>
+        <div class="py">Yàobù wǒmen xiān qù kànkan shíwù? Càidān shàng de zhàopiàn yǒu shíhou bú tài kěkào.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>じゃあ先に実物を見に行かない？メニューの写真って時々あまり信用できないし。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>要不</strong> <span class="py-mini">yàobù</span>：じゃあ〜しない？</li><li><strong>实物</strong> <span class="py-mini">shíwù</span>：実物</li><li><strong>可靠</strong> <span class="py-mini">kěkào</span>：信頼できる</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_13_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_13_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">14</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">可以。看了以后再决定，比较保险。</div>
+        <div class="py">Kěyǐ. Kàn le yǐhòu zài juédìng, bǐjiào bǎoxiǎn.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>いいよ。見てから決める方が無難だね。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>保险</strong> <span class="py-mini">bǎoxiǎn</span>：安全な、無難な</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_14_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_14_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">15</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">不过现在人好多啊。感觉排队要排很久。</div>
+        <div class="py">Búguò xiànzài rén hǎo duō a. Gǎnjué páiduì yào pái hěn jiǔ.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>でも今すごく人が多いね。かなり並びそう。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>排队</strong> <span class="py-mini">páiduì</span>：列に並ぶ</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_15_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_15_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">16</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">要是你赶时间，我们也可以去便利店买点东西。</div>
+        <div class="py">Yàoshi nǐ gǎn shíjiān, wǒmen yě kěyǐ qù biànlìdiàn mǎi diǎn dōngxi.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>急いでいるなら、コンビニで何か買ってもいいよ。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>要是</strong> <span class="py-mini">yàoshi</span>：もし〜なら</li><li><strong>赶时间</strong> <span class="py-mini">gǎn shíjiān</span>：時間に追われている、急いでいる</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_16_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_16_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">17</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">我下午两点才有事，不算太急。等十分钟应该没问题。</div>
+        <div class="py">Wǒ xiàwǔ liǎng diǎn cái yǒu shì, bú suàn tài jí. Děng shí fēnzhōng yīnggāi méi wèntí.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>午後2時から用事があるだけだから、そこまで急いでない。10分待つくらいなら大丈夫だと思う。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>不算</strong> <span class="py-mini">bú suàn</span>：〜というほどではない</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_17_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_17_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">18</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">那就排吧。反正我们也可以一边排队一边聊天。</div>
+        <div class="py">Nà jiù pái ba. Fǎnzhèng wǒmen yě kěyǐ yìbiān páiduì yìbiān liáotiān.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>じゃあ並ぼう。どうせ並びながら話せるしね。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>反正</strong> <span class="py-mini">fǎnzhèng</span>：どうせ、とにかく</li><li><strong>一边A一边B</strong> <span class="py-mini">yìbiān A yìbiān B</span>：AしながらBする</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_18_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_18_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">19</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">说起来，你最近中午都在外面吃吗？</div>
+        <div class="py">Shuō qǐlái, nǐ zuìjìn zhōngwǔ dōu zài wàimiàn chī ma?</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>そういえば、最近お昼はずっと外で食べてるの？</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>说起来</strong> <span class="py-mini">shuō qǐlái</span>：そういえば</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_19_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_19_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">20</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">差不多。自己带饭也不错，但是早上实在起不来。</div>
+        <div class="py">Chàbuduō. Zìjǐ dài fàn yě búcuò, dànshì zǎoshang shízài qǐ bu lái.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>だいたいね。自分で弁当を持ってくるのも悪くないけど、朝どうしても起きられない。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>带饭</strong> <span class="py-mini">dài fàn</span>：弁当を持ってくる</li><li><strong>实在</strong> <span class="py-mini">shízài</span>：本当に、どうしても</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_20_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_20_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">21</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">我懂。早上能准时出门已经很不容易了。</div>
+        <div class="py">Wǒ dǒng. Zǎoshang néng zhǔnshí chūmén yǐjīng hěn bù róngyì le.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>わかる。朝、時間通りに家を出るだけでもかなり大変だよね。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>准时</strong> <span class="py-mini">zhǔnshí</span>：時間通りに</li><li><strong>不容易</strong> <span class="py-mini">bù róngyì</span>：簡単ではない、大変だ</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_21_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_21_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">22</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">所以我最近的标准很低：能吃饱、别太贵，就可以了。</div>
+        <div class="py">Suǒyǐ wǒ zuìjìn de biāozhǔn hěn dī: néng chī bǎo, bié tài guì, jiù kěyǐ le.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>だから最近の基準はかなり低いよ。お腹いっぱいになって、高すぎなければそれでいい。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>标准</strong> <span class="py-mini">biāozhǔn</span>：基準</li><li><strong>吃饱</strong> <span class="py-mini">chī bǎo</span>：お腹いっぱい食べる</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_22_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_22_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">23</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">这个标准很现实。我今天也先不追求健康了。</div>
+        <div class="py">Zhège biāozhǔn hěn xiànshí. Wǒ jīntiān yě xiān bù zhuīqiú jiànkāng le.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>その基準は現実的だね。私も今日は健康はひとまず追求しないことにする。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>现实</strong> <span class="py-mini">xiànshí</span>：現実的な</li><li><strong>追求</strong> <span class="py-mini">zhuīqiú</span>：追求する</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_23_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_23_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">24</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">那你决定了吗？麻婆豆腐还是鸡肉？</div>
+        <div class="py">Nà nǐ juédìng le ma? Mápó dòufu háishi jīròu?</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>じゃあ決めた？麻婆豆腐？それともチキン？</div></details>
+      </td>
+      <td><span class="nogloss">語注なし</span></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_24_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_24_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">25</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">我决定了，今天选麻婆豆腐。就算有点辣，也当作换换心情。</div>
+        <div class="py">Wǒ juédìng le, jīntiān xuǎn mápó dòufu. Jiùsuàn yǒudiǎn là, yě dàngzuò huàn huàn xīnqíng.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>決めた。今日は麻婆豆腐にする。少し辛くても、気分転換だと思うことにする。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>就算</strong> <span class="py-mini">jiùsuàn</span>：たとえ〜でも</li><li><strong>当作</strong> <span class="py-mini">dàngzuò</span>：〜とみなす、〜だと思う</li><li><strong>换换心情</strong> <span class="py-mini">huàn huàn xīnqíng</span>：気分転換する</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_25_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_25_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">26</td>
+      <td class="speaker">B</td>
+      <td>
+        <div class="zh">不错。那我选鸡肉套餐，我们可以互相尝一口。</div>
+        <div class="py">Búcuò. Nà wǒ xuǎn jīròu tàocān, wǒmen kěyǐ hùxiāng cháng yì kǒu.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>いいね。じゃあ私はチキン定食にする。お互い一口ずつ味見できるね。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>互相</strong> <span class="py-mini">hùxiāng</span>：お互いに</li><li><strong>尝一口</strong> <span class="py-mini">cháng yì kǒu</span>：一口味見する</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_26_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_26_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="num">27</td>
+      <td class="speaker">A</td>
+      <td>
+        <div class="zh">这个主意好。这样就不用担心选错了。</div>
+        <div class="py">Zhège zhǔyi hǎo. Zhèyàng jiù bú yòng dānxīn xuǎn cuò le.</div>
+        <details class="translation"><summary>日本語訳を表示</summary><div>そのアイデアいいね。これなら選び間違いを心配しなくていい。</div></details>
+      </td>
+      <td><ul class="gloss"><li><strong>主意</strong> <span class="py-mini">zhǔyi</span>：アイデア、考え</li></ul></td>
+      <td class="audio">
+        <button onclick="playAudio('audio/line_27_normal.mp3')">▶</button>
+        <button onclick="playAudio('audio/line_27_slow.mp3')">ゆっくり</button>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>今日覚えたい表現</h2>
+    <table>
+      <thead><tr><th>表現</th><th>例文</th><th>意味</th><th>音声</th></tr></thead>
+      <tbody>
+    <tr>
+      <td><strong>说实话，我有点……</strong></td>
+      <td class="zh">说实话，我有点犹豫。</td>
+      <td><details class="translation"><summary>意味を表示</summary><div>正直、ちょっと迷っています。</div></details></td>
+      <td><button onclick="playAudio('audio/focus_01.mp3')">▶</button></td>
+    </tr>
+    
+    <tr>
+      <td><strong>这倒也是</strong></td>
+      <td class="zh">这倒也是。不过如果下午还要待很久，吃太少会没精神。</td>
+      <td><details class="translation"><summary>意味を表示</summary><div>それは確かにそう。でも午後も長くいるなら、少なすぎると元気が出ない。</div></details></td>
+      <td><button onclick="playAudio('audio/focus_02.mp3')">▶</button></td>
+    </tr>
+    
+    <tr>
+      <td><strong>与其A，不如B</strong></td>
+      <td class="zh">与其下午一直饿着，不如现在好好吃一顿。</td>
+      <td><details class="translation"><summary>意味を表示</summary><div>午後ずっと空腹でいるより、今ちゃんと一食食べた方がいい。</div></details></td>
+      <td><button onclick="playAudio('audio/focus_03.mp3')">▶</button></td>
+    </tr>
+    
+    <tr>
+      <td><strong>要不我们……？</strong></td>
+      <td class="zh">要不我们先去看看实物？</td>
+      <td><details class="translation"><summary>意味を表示</summary><div>じゃあ先に実物を見に行かない？</div></details></td>
+      <td><button onclick="playAudio('audio/focus_04.mp3')">▶</button></td>
+    </tr>
+    
+    <tr>
+      <td><strong>就算……也……</strong></td>
+      <td class="zh">就算有点辣，也当作换换心情。</td>
+      <td><details class="translation"><summary>意味を表示</summary><div>たとえ少し辛くても、気分転換だと思うことにする。</div></details></td>
+      <td><button onclick="playAudio('audio/focus_05.mp3')">▶</button></td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+</main>
+<audio id="player"></audio>
+<script>
+const player = document.getElementById('player');
+const statusEl = document.getElementById('status');
+
+const normalFiles = [
+  "audio/line_01_normal.mp3",
+  "audio/line_02_normal.mp3",
+  "audio/line_03_normal.mp3",
+  "audio/line_04_normal.mp3",
+  "audio/line_05_normal.mp3",
+  "audio/line_06_normal.mp3",
+  "audio/line_07_normal.mp3",
+  "audio/line_08_normal.mp3",
+  "audio/line_09_normal.mp3",
+  "audio/line_10_normal.mp3",
+  "audio/line_11_normal.mp3",
+  "audio/line_12_normal.mp3",
+  "audio/line_13_normal.mp3",
+  "audio/line_14_normal.mp3",
+  "audio/line_15_normal.mp3",
+  "audio/line_16_normal.mp3",
+  "audio/line_17_normal.mp3",
+  "audio/line_18_normal.mp3",
+  "audio/line_19_normal.mp3",
+  "audio/line_20_normal.mp3",
+  "audio/line_21_normal.mp3",
+  "audio/line_22_normal.mp3",
+  "audio/line_23_normal.mp3",
+  "audio/line_24_normal.mp3",
+  "audio/line_25_normal.mp3",
+  "audio/line_26_normal.mp3",
+  "audio/line_27_normal.mp3"
+];
+
+const slowFiles = [
+  "audio/line_01_slow.mp3",
+  "audio/line_02_slow.mp3",
+  "audio/line_03_slow.mp3",
+  "audio/line_04_slow.mp3",
+  "audio/line_05_slow.mp3",
+  "audio/line_06_slow.mp3",
+  "audio/line_07_slow.mp3",
+  "audio/line_08_slow.mp3",
+  "audio/line_09_slow.mp3",
+  "audio/line_10_slow.mp3",
+  "audio/line_11_slow.mp3",
+  "audio/line_12_slow.mp3",
+  "audio/line_13_slow.mp3",
+  "audio/line_14_slow.mp3",
+  "audio/line_15_slow.mp3",
+  "audio/line_16_slow.mp3",
+  "audio/line_17_slow.mp3",
+  "audio/line_18_slow.mp3",
+  "audio/line_19_slow.mp3",
+  "audio/line_20_slow.mp3",
+  "audio/line_21_slow.mp3",
+  "audio/line_22_slow.mp3",
+  "audio/line_23_slow.mp3",
+  "audio/line_24_slow.mp3",
+  "audio/line_25_slow.mp3",
+  "audio/line_26_slow.mp3",
+  "audio/line_27_slow.mp3"
+];
+
+let sequenceTimer = null;
+let sequenceIndex = 0;
+let currentSequence = [];
+
+function playAudio(src) {
+  stopAudio();
+  player.src = src;
+  player.currentTime = 0;
+  statusEl.textContent = '再生中: ' + src;
+  player.play().catch(err => {
+    statusEl.textContent = '再生できません。mp3生成済みか確認してください: ' + src;
+    console.error(err);
+  });
+}
+
+function playSequence(files, pauseMs) {
+  stopAudio();
+  currentSequence = files;
+  sequenceIndex = 0;
+
+  function playNext() {
+    if (sequenceIndex >= currentSequence.length) {
+      statusEl.textContent = "再生終了。";
+      return;
+    }
+
+    const src = currentSequence[sequenceIndex];
+    sequenceIndex += 1;
+
+    player.src = src;
+    player.currentTime = 0;
+    statusEl.textContent = "再生中: " + src;
+
+    player.onended = () => {
+      sequenceTimer = setTimeout(playNext, pauseMs);
+    };
+
+    player.play().catch(err => {
+      statusEl.textContent = "再生できません: " + src;
+      console.error(err);
+    });
+  }
+
+  playNext();
+}
+
+function stopAudio() {
+  if (sequenceTimer) {
+    clearTimeout(sequenceTimer);
+    sequenceTimer = null;
+  }
+  player.pause();
+  player.currentTime = 0;
+  player.onended = null;
+  statusEl.textContent = "停止しました。";
+}
+</script>
+</body>
+</html>
