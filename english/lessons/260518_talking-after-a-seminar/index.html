@@ -1,0 +1,265 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>English Shadowing Day 1: Talking after a seminar</title><style>
+:root{--bg:#f6f7f8;--card:#fff;--line:#e6e8eb;--text:#222;--muted:#65717d;--accent:#1f6feb;--chip:#eef5ff;--chip-border:#c8dcff;--warm:#fff7df;--a-bg:#f3f8ff;--a-border:#9fc5ff;--b-bg:#f4fbf3;--b-border:#a8d8a8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;line-height:1.45}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);padding:8px 10px;backdrop-filter:blur(8px)}
+.header-inner,main{max-width:980px;margin:0 auto}h1{font-size:17px;margin:0 0 6px;line-height:1.28}.controls{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+button{border:1px solid #b9c2cc;background:white;border-radius:999px;padding:5px 9px;font-size:12px;line-height:1.2;cursor:pointer}button.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.status{font-size:12px;color:var(--muted);margin-left:3px}main{padding:10px 8px 24px}.compact-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 11px;margin-bottom:10px}.goal{background:var(--warm)}h2{font-size:15px;margin:0 0 5px}
+.script-list{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}.line-item{padding:9px 10px 8px;border-bottom:1px solid var(--line);scroll-margin-top:100px}.line-item:last-child{border-bottom:none}
+.speaker-line-A{background:var(--a-bg);border-left:5px solid var(--a-border)}.speaker-line-B{background:var(--b-bg);border-left:5px solid var(--b-border)}.line-item.current{box-shadow:inset 0 0 0 2px var(--accent);filter:saturate(1.08)}
+.line-top{display:flex;align-items:center;gap:6px;margin-bottom:3px}.num{color:var(--muted);font-size:12px;min-width:22px}.speaker{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;font-weight:800;font-size:12px;background:#f0f0f0}.speaker-A{background:#d9eaff;color:#0b4a97}.speaker-B{background:#dff3df;color:#236b2a}.mini-btn{padding:3px 8px;font-size:11.5px}
+.zh{font-size:20px;line-height:1.36;margin:3px 0 2px;letter-spacing:.01em}.py{font-size:13.5px;line-height:1.32;margin:2px 0 5px;color:var(--muted)}.goal .zh{font-size:19px}.meta-row{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:3px}
+.gloss-chip,.empty-chip{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:12px;line-height:1.3;background:var(--chip);border:1px solid var(--chip-border)}.gloss-chip span{color:var(--muted);margin-left:3px}.empty-chip{background:rgba(255,255,255,.7);border-color:#ddd;color:var(--muted)}
+details.translation{display:inline-block;margin:0}details.translation summary{list-style:none;cursor:pointer;border:1px solid #ddd;border-radius:999px;padding:3px 8px;font-size:12px;line-height:1.3;background:#fff;color:var(--accent)}details.translation summary::-webkit-details-marker{display:none}details.translation div{margin-top:5px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.85);color:#333;font-size:13.5px;line-height:1.45;border:1px solid rgba(0,0,0,.06)}.inline-translation[open]{display:block;width:100%;margin-top:2px}
+.focus-wrap{display:flex;flex-wrap:wrap;gap:6px}.focus-chip{border:1px solid var(--chip-border);background:var(--chip);border-radius:12px;padding:4px 8px;font-size:12px}.focus-chip summary{cursor:pointer;font-weight:600}.focus-body{margin-top:5px;max-width:480px}.focus-zh{font-size:14px}.focus-ja{color:var(--muted);margin:3px 0}.review-list{margin:4px 0 0 20px;padding:0;font-size:14px}.help{font-size:12px;color:var(--muted);margin:0 0 7px}
+@media(max-width:640px){h1{font-size:15px}.controls{gap:4px}button{font-size:11.5px;padding:4px 8px}.status{width:100%;margin-left:0}main{padding:7px}.line-item{padding:8px 8px 7px;scroll-margin-top:112px}.zh{font-size:19px;line-height:1.38}.py{font-size:13px;line-height:1.34}.gloss-chip,.empty-chip,details.translation summary{font-size:11.5px;padding:3px 7px}}
+</style></head>
+<body><header><div class="header-inner"><h1>English Shadowing Day 1: Talking after a seminar</h1><div class="controls">
+<button class="primary" onclick="playSequence('normal')">全体▶</button><button onclick="playSequence('slow')">全体ゆっくり</button><button onclick="pauseAudio()">一時停止</button><button onclick="resumeAudio()">再開</button><button onclick="stopAudio()">停止</button><button onclick="prevLine()">前</button><button onclick="nextLine()">次</button><button onclick="toggleAllTranslations(true)">訳 全表示</button><button onclick="toggleAllTranslations(false)">訳 非表示</button><span class="status" id="status">現在 01 / 30</span>
+</div></div></header><main>
+<section class="compact-card goal"><h2>今日のゴール</h2><p class="zh">Discussion English is not about sounding perfect; it is about having a few reliable phrases ready when you need them.</p><div class="meta-row"><button onclick="playAudio('audio/goal_normal.mp3')">▶</button><button onclick="playAudio('audio/goal_slow.mp3')">ゆっくり</button><details class="translation"><summary>訳</summary><div>ディスカッション英語は完璧に聞こえることではなく、必要な時に使える頼れる表現をいくつか用意しておくことだ。</div></details></div></section>
+<section class="compact-card"><h2>覚えたい表現</h2><div class="focus-wrap"><details class="focus-chip"><summary>That makes sense.</summary>
+<div class="focus-body"><div class="focus-zh">That makes sense. They moved pretty quickly.</div><div class="focus-ja">なるほどね。それは筋が通っているね。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_01.mp3')">▶</button></div></details><details class="focus-chip"><summary>I see what you mean.</summary>
+<div class="focus-body"><div class="focus-zh">I see what you mean. If I wait until the sentence is perfect, the topic has already moved on.</div><div class="focus-ja">言いたいことはわかる。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_02.mp3')">▶</button></div></details><details class="focus-chip"><summary>I&#x27;m not entirely sure, but...</summary>
+<div class="focus-body"><div class="focus-zh">I&#x27;m not entirely sure, but I think the second option might be clearer.</div><div class="focus-ja">完全に確信はないけど……</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_03.mp3')">▶</button></div></details><details class="focus-chip"><summary>That&#x27;s a fair point.</summary>
+<div class="focus-body"><div class="focus-zh">That&#x27;s a fair point. I think I put too much pressure on myself.</div><div class="focus-ja">それは確かに一理あるね。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_04.mp3')">▶</button></div></details><details class="focus-chip"><summary>I wouldn&#x27;t go that far.</summary>
+<div class="focus-body"><div class="focus-zh">I wouldn’t go that far.</div><div class="focus-ja">そこまでは言わないかな。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_05.mp3')">▶</button></div></details><details class="focus-chip"><summary>I see where you&#x27;re coming from.</summary>
+<div class="focus-body"><div class="focus-zh">I see where you’re coming from, but I’d put it a bit differently.</div><div class="focus-ja">そう考える理由はわかる。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_06.mp3')">▶</button></div></details><details class="focus-chip"><summary>I&#x27;m leaning toward...</summary>
+<div class="focus-body"><div class="focus-zh">I’m leaning toward that approach.</div><div class="focus-ja">どちらかというと〜に傾いている。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_07.mp3')">▶</button></div></details><details class="focus-chip"><summary>Let me think about how to put this.</summary>
+<div class="focus-body"><div class="focus-zh">Let me think about how to put this.</div><div class="focus-ja">どう言えばいいかな。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_08.mp3')">▶</button></div></details></div></section>
+<section class="compact-card"><h2>ゴール表現 3つ</h2><ol class="review-list"><li>That makes sense.</li><li>I&#x27;m not entirely sure, but...</li><li>I wouldn’t go that far.</li></ol></section>
+<p class="help">5分版です。表現ストックを増やす目的で、自然な反応・やわらかい意見表明を多めに入れています。</p><section class="script-list"><article class="line-item speaker-line-A" id="line-1">
+<div class="line-top"><span class="num">01</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(0, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(0, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>あのセミナー、かなり情報量が多かったね。最後の部分ついていけた？</div></details></div>
+<p class="zh">That seminar was a lot to take in. Did you follow the last part?</p>
+<div class="meta-row"><span class="gloss-chip"><b>a lot to take in</b>：受け止める情報量が多い</span><span class="gloss-chip"><b>follow</b>：話についていく</span></div></article><article class="line-item speaker-line-B" id="line-2">
+<div class="line-top"><span class="num">02</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(1, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(1, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>大まかな考えはわかったけど、細かい部分はいくつか理解しきれなかった。</div></details></div>
+<p class="zh">I got the general idea, but some of the details went over my head.</p>
+<div class="meta-row"><span class="gloss-chip"><b>the general idea</b>：大まかな考え</span><span class="gloss-chip"><b>go over my head</b>：難しくて理解できない</span></div></article><article class="line-item speaker-line-A" id="line-3">
+<div class="line-top"><span class="num">03</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(2, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(2, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>私も同じ。最初は大丈夫だったけど、前提の話に入ったあたりから話の筋を見失い始めた。</div></details></div>
+<p class="zh">Same here. I was fine at first, but once they got into the assumptions, I started losing the thread.</p>
+<div class="meta-row"><span class="gloss-chip"><b>same here</b>：私も同じ</span><span class="gloss-chip"><b>lose the thread</b>：話の流れを見失う</span></div></article><article class="line-item speaker-line-B" id="line-4">
+<div class="line-top"><span class="num">04</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(3, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(3, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それはわかる。かなり速く進んでいたし、質問のためにあまり止まらなかったよね。</div></details></div>
+<p class="zh">That makes sense. They moved pretty quickly, and they didn’t really slow down for questions.</p>
+<div class="meta-row"><span class="gloss-chip"><b>That makes sense</b>：なるほど、それはわかる</span></div></article><article class="line-item speaker-line-A" id="line-5">
+<div class="line-top"><span class="num">05</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(4, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(4, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>何か聞きたかったんだけど、その場でどう言えばいいか思いつかなかった。</div></details></div>
+<p class="zh">I wanted to ask something, but I couldn’t figure out how to phrase it on the spot.</p>
+<div class="meta-row"><span class="gloss-chip"><b>figure out how to phrase it</b>：どう表現するか考え出す</span><span class="gloss-chip"><b>on the spot</b>：その場で</span></div></article><article class="line-item speaker-line-B" id="line-6">
+<div class="line-top"><span class="num">06</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(5, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(5, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それわかる。何が引っかかっているかはわかるのに、すぐにきれいな質問にできないことが多い。</div></details></div>
+<p class="zh">I can relate to that. I often know what bothers me, but I can’t turn it into a clean question right away.</p>
+<div class="meta-row"><span class="gloss-chip"><b>I can relate to that</b>：それわかる</span><span class="gloss-chip"><b>what bothers me</b>：何が気になるのか</span></div></article><article class="line-item speaker-line-A" id="line-7">
+<div class="line-top"><span class="num">07</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(6, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(6, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>まさにそれ。考えはあるのに、言葉が数秒遅れてやってくる感じ。</div></details></div>
+<p class="zh">Exactly. It feels like my thoughts are there, but the words arrive a few seconds late.</p>
+<div class="meta-row"><span class="gloss-chip"><b>Exactly</b>：まさにその通り</span><span class="gloss-chip"><b>arrive a few seconds late</b>：少し遅れて出てくる</span></div></article><article class="line-item speaker-line-B" id="line-8">
+<div class="line-top"><span class="num">08</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(7, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(7, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>完璧にしなくてもいいのかも。『完全に確信はないけど…』みたいに簡単に始めればいいと思う。</div></details></div>
+<p class="zh">Maybe you don’t need to make it perfect. You could start with something simple, like “I’m not entirely sure, but...”</p>
+<div class="meta-row"><span class="gloss-chip"><b>I&#x27;m not entirely sure, but...</b>：完全に確信はないけど…</span></div></article><article class="line-item speaker-line-A" id="line-9">
+<div class="line-top"><span class="num">09</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(8, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(8, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それは確かに一理あるね。私は正確に聞こえるようにしなきゃと自分にプレッシャーをかけすぎている気がする。</div></details></div>
+<p class="zh">That’s a fair point. I think I put too much pressure on myself to sound precise.</p>
+<div class="meta-row"><span class="gloss-chip"><b>That&#x27;s a fair point</b>：それは一理ある</span><span class="gloss-chip"><b>put pressure on myself</b>：自分にプレッシャーをかける</span></div></article><article class="line-item speaker-line-B" id="line-10">
+<div class="line-top"><span class="num">10</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(9, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(9, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>正確さは大事だけど、ディスカッションでは会話を動かし始めることも大事だよ。</div></details></div>
+<p class="zh">Precision matters, but in a discussion, getting the conversation going matters too.</p>
+<div class="meta-row"><span class="gloss-chip"><b>Precision matters</b>：正確さは大事</span><span class="gloss-chip"><b>get the conversation going</b>：会話を動かし始める</span></div></article><article class="line-item speaker-line-A" id="line-11">
+<div class="line-top"><span class="num">11</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(10, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(10, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>言いたいことはわかる。文が完璧になるまで待っていると、話題がもう次に行ってしまう。</div></details></div>
+<p class="zh">I see what you mean. If I wait until the sentence is perfect, the topic has already moved on.</p>
+<div class="meta-row"><span class="gloss-chip"><b>I see what you mean</b>：言いたいことはわかる</span><span class="gloss-chip"><b>move on</b>：次に進む</span></div></article><article class="line-item speaker-line-B" id="line-12">
+<div class="line-top"><span class="num">12</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(11, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(11, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>そう。最初の言い方が明確じゃなければ、『別の言い方をすると』って後から足せるし。</div></details></div>
+<p class="zh">Right. You can always add, “Let me put it another way,” if the first version isn’t clear.</p>
+<div class="meta-row"><span class="gloss-chip"><b>put it another way</b>：別の言い方をする</span><span class="gloss-chip"><b>the first version</b>：最初の言い方</span></div></article><article class="line-item speaker-line-A" id="line-13">
+<div class="line-top"><span class="num">13</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(12, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(12, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>その表現は役に立ちそう。焦らずに文を修正する方法になるね。</div></details></div>
+<p class="zh">That phrase might help. It gives me a way to repair the sentence without panicking.</p>
+<div class="meta-row"><span class="gloss-chip"><b>repair the sentence</b>：文を修正する</span><span class="gloss-chip"><b>without panicking</b>：焦らずに</span></div></article><article class="line-item speaker-line-B" id="line-14">
+<div class="line-top"><span class="num">14</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(13, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(13, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>あと、反対するときも、直接言いすぎる必要はないよ。『そこまでは言わないかな』って言える。</div></details></div>
+<p class="zh">Also, when you disagree, you don’t have to say it too directly. You can say, “I wouldn’t go that far.”</p>
+<div class="meta-row"><span class="gloss-chip"><b>I wouldn&#x27;t go that far</b>：そこまでは言わないかな</span></div></article><article class="line-item speaker-line-A" id="line-15">
+<div class="line-top"><span class="num">15</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(14, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(14, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それいいね。『反対です』より柔らかいけど、自分の立場は示せる。</div></details></div>
+<p class="zh">I like that. It sounds softer than “I disagree,” but it still shows where I stand.</p>
+<div class="meta-row"><span class="gloss-chip"><b>where I stand</b>：自分の立場</span></div></article><article class="line-item speaker-line-B" id="line-16">
+<div class="line-top"><span class="num">16</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(15, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(15, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>そうそう。あるいは『言いたいことはわかるけど、少し違う言い方をするかな』とも言える。</div></details></div>
+<p class="zh">Exactly. Or you could say, “I see where you’re coming from, but I’d put it a bit differently.”</p>
+<div class="meta-row"><span class="gloss-chip"><b>I see where you&#x27;re coming from</b>：そう考える理由はわかる</span><span class="gloss-chip"><b>I&#x27;d put it a bit differently</b>：少し違う言い方をする</span></div></article><article class="line-item speaker-line-A" id="line-17">
+<div class="line-top"><span class="num">17</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(16, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(16, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>そういう表現が自分に足りないんだよね。準備したスライドは説明できるけど、とっさの反応が難しい。</div></details></div>
+<p class="zh">That’s the kind of phrase I’m missing. I can explain prepared slides, but spontaneous reactions are harder.</p>
+<div class="meta-row"><span class="gloss-chip"><b>spontaneous reactions</b>：とっさの反応</span></div></article><article class="line-item speaker-line-B" id="line-18">
+<div class="line-top"><span class="num">18</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(17, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(17, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それはすごく普通だよ。準備した英語とディスカッションの英語は同じスキルじゃない。</div></details></div>
+<p class="zh">That’s totally normal. Prepared English and discussion English are not the same skill.</p>
+<div class="meta-row"><span class="gloss-chip"><b>totally normal</b>：ごく普通</span><span class="gloss-chip"><b>not the same skill</b>：同じスキルではない</span></div></article><article class="line-item speaker-line-A" id="line-19">
+<div class="line-top"><span class="num">19</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(18, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(18, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>状況にもよるよね。友達相手ならもっと自由に話せる。</div></details></div>
+<p class="zh">I guess it depends on the situation, too. With friends, I can speak more freely.</p>
+<div class="meta-row"><span class="gloss-chip"><b>I guess it depends</b>：場合によるかな</span><span class="gloss-chip"><b>speak more freely</b>：もっと自由に話す</span></div></article><article class="line-item speaker-line-B" id="line-20">
+<div class="line-top"><span class="num">20</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(19, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(19, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>うん、リスクが低く感じるからね。セミナーだと、全部の文が賢くなければいけない気がする。</div></details></div>
+<p class="zh">Yeah, because the stakes feel lower. In a seminar, every sentence feels like it has to be smart.</p>
+<div class="meta-row"><span class="gloss-chip"><b>the stakes feel lower</b>：リスクが低く感じる</span><span class="gloss-chip"><b>smart</b>：賢い、気の利いた</span></div></article><article class="line-item speaker-line-A" id="line-21">
+<div class="line-top"><span class="num">21</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(20, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(20, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>まさにそれ。英語そのものが怖いんじゃなくて、曖昧に聞こえるのが怖い。</div></details></div>
+<p class="zh">That’s exactly it. I’m not afraid of English itself. I’m afraid of sounding vague.</p>
+<div class="meta-row"><span class="gloss-chip"><b>sound vague</b>：曖昧に聞こえる</span></div></article><article class="line-item speaker-line-B" id="line-22">
+<div class="line-top"><span class="num">22</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(21, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(21, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それなら目標は完璧に聞こえることじゃなくて、信頼できる表現をいくつか用意しておくことかも。</div></details></div>
+<p class="zh">Then maybe the goal is not to sound perfect, but to have a few reliable phrases ready.</p>
+<div class="meta-row"><span class="gloss-chip"><b>reliable phrases</b>：頼れる表現</span></div></article><article class="line-item speaker-line-A" id="line-23">
+<div class="line-top"><span class="num">23</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(22, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(22, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>そのやり方に傾いてる。全部を即興でやろうとするより現実的に感じる。</div></details></div>
+<p class="zh">I’m leaning toward that approach. It feels more realistic than trying to improvise everything.</p>
+<div class="meta-row"><span class="gloss-chip"><b>I&#x27;m leaning toward</b>：〜に傾いている</span><span class="gloss-chip"><b>improvise</b>：即興で行う</span></div></article><article class="line-item speaker-line-B" id="line-24">
+<div class="line-top"><span class="num">24</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(23, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(23, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>反応表現を小さなセットにして、自動的に出てくるまで練習すればいいと思う。</div></details></div>
+<p class="zh">You could make a small set of reaction phrases and practice them until they come out automatically.</p>
+<div class="meta-row"><span class="gloss-chip"><b>come out automatically</b>：自動的に出てくる</span></div></article><article class="line-item speaker-line-A" id="line-25">
+<div class="line-top"><span class="num">25</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(24, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(24, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それならできそう。まずは “That makes sense,” “I’m not entirely sure,” “I wouldn’t go that far” から始めようかな。</div></details></div>
+<p class="zh">That sounds doable. Maybe I’ll start with “That makes sense,” “I’m not entirely sure,” and “I wouldn’t go that far.”</p>
+<div class="meta-row"><span class="gloss-chip"><b>doable</b>：実行可能な</span></div></article><article class="line-item speaker-line-B" id="line-26">
+<div class="line-top"><span class="num">26</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(25, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(25, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>いいセットだね。同意、不確かさ、柔らかい反対をカバーできる。</div></details></div>
+<p class="zh">Good set. They cover agreement, uncertainty, and soft disagreement.</p>
+<div class="meta-row"><span class="gloss-chip"><b>soft disagreement</b>：柔らかい反対</span></div></article><article class="line-item speaker-line-A" id="line-27">
+<div class="line-top"><span class="num">27</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(26, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(26, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それで詰まったら、“Let me think about how to put this.” って言えばいいね。</div></details></div>
+<p class="zh">And if I get stuck, I can say, “Let me think about how to put this.”</p>
+<div class="meta-row"><span class="gloss-chip"><b>get stuck</b>：詰まる、言葉に詰まる</span></div></article><article class="line-item speaker-line-B" id="line-28">
+<div class="line-top"><span class="num">28</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(27, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(27, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>その通り。それなら沈黙を気まずくせずに時間を稼げる。</div></details></div>
+<p class="zh">Exactly. That buys you time without making the silence feel awkward.</p>
+<div class="meta-row"><span class="gloss-chip"><b>buy time</b>：時間を稼ぐ</span><span class="gloss-chip"><b>awkward</b>：気まずい</span></div></article><article class="line-item speaker-line-A" id="line-29">
+<div class="line-top"><span class="num">29</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(28, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(28, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>少し気が楽になった。ディスカッション英語は完璧な文法より、取っかかりになる表現を持つことなのかも。</div></details></div>
+<p class="zh">I feel a bit better now. Maybe discussion English is more about having handles than having perfect grammar.</p>
+<div class="meta-row"><span class="gloss-chip"><b>handles</b>：取っかかり、扱うための手がかり</span></div></article><article class="line-item speaker-line-B" id="line-30">
+<div class="line-top"><span class="num">30</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(29, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(29, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それはいい捉え方だと思う。取っかかりがあれば、その周りに残りを組み立てられるから。</div></details></div>
+<p class="zh">I think that’s a good way to look at it. Once you have handles, you can build the rest around them.</p>
+<div class="meta-row"><span class="gloss-chip"><b>a good way to look at it</b>：よい捉え方</span><span class="gloss-chip"><b>build the rest around them</b>：その周りに残りを組み立てる</span></div></article></section></main><audio id="player"></audio><script>
+const player=document.getElementById('player');const statusEl=document.getElementById('status');
+const normalFiles=["audio/line_01_normal.mp3",
+  "audio/line_02_normal.mp3",
+  "audio/line_03_normal.mp3",
+  "audio/line_04_normal.mp3",
+  "audio/line_05_normal.mp3",
+  "audio/line_06_normal.mp3",
+  "audio/line_07_normal.mp3",
+  "audio/line_08_normal.mp3",
+  "audio/line_09_normal.mp3",
+  "audio/line_10_normal.mp3",
+  "audio/line_11_normal.mp3",
+  "audio/line_12_normal.mp3",
+  "audio/line_13_normal.mp3",
+  "audio/line_14_normal.mp3",
+  "audio/line_15_normal.mp3",
+  "audio/line_16_normal.mp3",
+  "audio/line_17_normal.mp3",
+  "audio/line_18_normal.mp3",
+  "audio/line_19_normal.mp3",
+  "audio/line_20_normal.mp3",
+  "audio/line_21_normal.mp3",
+  "audio/line_22_normal.mp3",
+  "audio/line_23_normal.mp3",
+  "audio/line_24_normal.mp3",
+  "audio/line_25_normal.mp3",
+  "audio/line_26_normal.mp3",
+  "audio/line_27_normal.mp3",
+  "audio/line_28_normal.mp3",
+  "audio/line_29_normal.mp3",
+  "audio/line_30_normal.mp3"];const slowFiles=["audio/line_01_slow.mp3",
+  "audio/line_02_slow.mp3",
+  "audio/line_03_slow.mp3",
+  "audio/line_04_slow.mp3",
+  "audio/line_05_slow.mp3",
+  "audio/line_06_slow.mp3",
+  "audio/line_07_slow.mp3",
+  "audio/line_08_slow.mp3",
+  "audio/line_09_slow.mp3",
+  "audio/line_10_slow.mp3",
+  "audio/line_11_slow.mp3",
+  "audio/line_12_slow.mp3",
+  "audio/line_13_slow.mp3",
+  "audio/line_14_slow.mp3",
+  "audio/line_15_slow.mp3",
+  "audio/line_16_slow.mp3",
+  "audio/line_17_slow.mp3",
+  "audio/line_18_slow.mp3",
+  "audio/line_19_slow.mp3",
+  "audio/line_20_slow.mp3",
+  "audio/line_21_slow.mp3",
+  "audio/line_22_slow.mp3",
+  "audio/line_23_slow.mp3",
+  "audio/line_24_slow.mp3",
+  "audio/line_25_slow.mp3",
+  "audio/line_26_slow.mp3",
+  "audio/line_27_slow.mp3",
+  "audio/line_28_slow.mp3",
+  "audio/line_29_slow.mp3",
+  "audio/line_30_slow.mp3"];
+let currentIndex=0,sequenceMode=null,sequenceTimer=null,isSequencePlaying=false;const normalPauseMs=400,slowPauseMs=500;
+function updateCurrentLine(scroll=false){document.querySelectorAll('.line-item').forEach((el,idx)=>{el.classList.toggle('current',idx===currentIndex);});statusEl.textContent=`現在 ${String(currentIndex+1).padStart(2,'0')} / 30`;if(scroll){const el=document.getElementById(`line-${currentIndex+1}`);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function fileFor(index,mode){return (mode==='slow'?slowFiles:normalFiles)[index];}
+function playAudio(src){clearPendingTimer();isSequencePlaying=false;sequenceMode=null;player.src=src;player.currentTime=0;player.onended=null;player.play().catch(err=>{statusEl.textContent='再生できません: '+src;console.error(err);});}
+function jumpAndPlay(index,mode){currentIndex=index;updateCurrentLine(true);clearPendingTimer();isSequencePlaying=false;sequenceMode=null;player.src=fileFor(currentIndex,mode);player.currentTime=0;player.onended=null;player.play();}
+function playSequence(mode){clearPendingTimer();sequenceMode=mode;isSequencePlaying=true;playCurrentInSequence();}
+function playCurrentInSequence(){if(!isSequencePlaying||currentIndex>=normalFiles.length){isSequencePlaying=false;statusEl.textContent='再生終了';return;}updateCurrentLine(true);player.src=fileFor(currentIndex,sequenceMode);player.currentTime=0;player.onended=()=>{currentIndex+=1;if(currentIndex>=normalFiles.length){isSequencePlaying=false;statusEl.textContent='再生終了';return;}const pauseMs=sequenceMode==='slow'?slowPauseMs:normalPauseMs;sequenceTimer=setTimeout(playCurrentInSequence,pauseMs);};player.play().catch(err=>{statusEl.textContent='再生できません';console.error(err);});}
+function pauseAudio(){player.pause();clearPendingTimer();statusEl.textContent=`一時停止 ${String(currentIndex+1).padStart(2,'0')} / 30`;}
+function resumeAudio(){if(player.src){player.play();statusEl.textContent=`再開 ${String(currentIndex+1).padStart(2,'0')} / 30`;}}
+function stopAudio(){clearPendingTimer();isSequencePlaying=false;sequenceMode=null;player.pause();player.currentTime=0;player.onended=null;updateCurrentLine(false);}
+function clearPendingTimer(){if(sequenceTimer){clearTimeout(sequenceTimer);sequenceTimer=null;}}
+function prevLine(){stopAudio();currentIndex=Math.max(0,currentIndex-1);updateCurrentLine(true);}
+function nextLine(){stopAudio();currentIndex=Math.min(normalFiles.length-1,currentIndex+1);updateCurrentLine(true);}
+function toggleAllTranslations(open){document.querySelectorAll('details.translation').forEach(d=>{d.open=open;});}
+updateCurrentLine(false);
+</script></body></html>
