@@ -1,0 +1,143 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中国語音読教材 Day 3：図書館で一緒に作業する約束</title><style>
+:root{--bg:#f6f7f8;--card:#fff;--line:#e6e8eb;--text:#222;--muted:#65717d;--accent:#1f6feb;--chip:#eef5ff;--chip-border:#c8dcff;--warm:#fff7df;--a-bg:#f3f8ff;--a-border:#9fc5ff;--b-bg:#f4fbf3;--b-border:#a8d8a8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;line-height:1.45}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);padding:8px 10px;backdrop-filter:blur(8px)}
+.header-inner,main{max-width:980px;margin:0 auto}h1{font-size:17px;margin:0 0 6px;line-height:1.28}.controls{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+button{border:1px solid #b9c2cc;background:white;border-radius:999px;padding:5px 9px;font-size:12px;line-height:1.2;cursor:pointer}button.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.status{font-size:12px;color:var(--muted);margin-left:3px}main{padding:10px 8px 24px}.compact-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 11px;margin-bottom:10px}.goal{background:var(--warm)}h2{font-size:15px;margin:0 0 5px}
+.script-list{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}.line-item{padding:9px 10px 8px;border-bottom:1px solid var(--line);scroll-margin-top:100px}.line-item:last-child{border-bottom:none}
+.speaker-line-A{background:var(--a-bg);border-left:5px solid var(--a-border)}.speaker-line-B{background:var(--b-bg);border-left:5px solid var(--b-border)}.line-item.current{box-shadow:inset 0 0 0 2px var(--accent);filter:saturate(1.08)}
+.line-top{display:flex;align-items:center;gap:6px;margin-bottom:3px}.num{color:var(--muted);font-size:12px;min-width:22px}.speaker{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;font-weight:800;font-size:12px;background:#f0f0f0}.speaker-A{background:#d9eaff;color:#0b4a97}.speaker-B{background:#dff3df;color:#236b2a}.mini-btn{padding:3px 8px;font-size:11.5px}
+.zh{font-size:20px;line-height:1.36;margin:3px 0 2px;letter-spacing:.01em}.py{font-size:13.5px;line-height:1.32;margin:2px 0 5px;color:var(--muted)}.goal .zh{font-size:19px}.meta-row{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:3px}
+.gloss-chip,.empty-chip{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:12px;line-height:1.3;background:var(--chip);border:1px solid var(--chip-border)}.gloss-chip span{color:var(--muted);margin-left:3px}.empty-chip{background:rgba(255,255,255,.7);border-color:#ddd;color:var(--muted)}
+details.translation{display:inline-block;margin:0}details.translation summary{list-style:none;cursor:pointer;border:1px solid #ddd;border-radius:999px;padding:3px 8px;font-size:12px;line-height:1.3;background:#fff;color:var(--accent)}details.translation summary::-webkit-details-marker{display:none}details.translation div{margin-top:5px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.85);color:#333;font-size:13.5px;line-height:1.45;border:1px solid rgba(0,0,0,.06)}.inline-translation[open]{display:block;width:100%;margin-top:2px}
+.focus-wrap{display:flex;flex-wrap:wrap;gap:6px}.focus-chip{border:1px solid var(--chip-border);background:var(--chip);border-radius:12px;padding:4px 8px;font-size:12px}.focus-chip summary{cursor:pointer;font-weight:600}.focus-body{margin-top:5px;max-width:480px}.focus-zh{font-size:14px}.focus-ja{color:var(--muted);margin:3px 0}.review-list{margin:4px 0 0 20px;padding:0;font-size:14px}.help{font-size:12px;color:var(--muted);margin:0 0 7px}
+@media(max-width:640px){h1{font-size:15px}.controls{gap:4px}button{font-size:11.5px;padding:4px 8px}.status{width:100%;margin-left:0}main{padding:7px}.line-item{padding:8px 8px 7px;scroll-margin-top:112px}.zh{font-size:19px;line-height:1.38}.py{font-size:13px;line-height:1.34}.gloss-chip,.empty-chip,details.translation summary{font-size:11.5px;padding:3px 7px}}
+</style></head>
+<body><header><div class="header-inner"><h1>中国語音読教材 Day 3：図書館で一緒に作業する約束</h1><div class="controls">
+<button class="primary" onclick="playSequence('normal')">全体▶</button><button onclick="playSequence('slow')">全体ゆっくり</button><button onclick="pauseAudio()">一時停止</button><button onclick="resumeAudio()">再開</button><button onclick="stopAudio()">停止</button><button onclick="prevLine()">前</button><button onclick="nextLine()">次</button><button onclick="toggleAllTranslations(true)">訳 全表示</button><button onclick="toggleAllTranslations(false)">訳 非表示</button><span class="status" id="status">現在 01 / 14</span>
+</div></div></header><main>
+<section class="compact-card goal"><h2>今日のゴール</h2><p class="zh">与其勉强自己，不如先稳定节奏，慢慢把状态找回来。</p><p class="py">Yǔqí miǎnqiǎng zìjǐ, bùrú xiān wěndìng jiézòu, mànmàn bǎ zhuàngtài zhǎo huílái.</p><div class="meta-row"><button onclick="playAudio('audio/goal_normal.mp3')">▶</button><button onclick="playAudio('audio/goal_slow.mp3')">ゆっくり</button><details class="translation"><summary>訳</summary><div>無理するより、まずリズムを安定させて、少しずつ調子を取り戻した方がいい。</div></details></div></section>
+<section class="compact-card"><h2>覚えたい表現 3つ</h2><div class="focus-wrap"><details class="focus-chip"><summary>要不我们一起去？</summary>
+<div class="focus-body"><div class="focus-zh">要不我们一起去？</div><div class="focus-ja">じゃあ一緒に行かない？</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_01.mp3')">▶</button></div></details><details class="focus-chip"><summary>与其勉强自己，不如先稳定节奏。</summary>
+<div class="focus-body"><div class="focus-zh">与其勉强自己，不如先稳定节奏。</div><div class="focus-ja">無理するより、まずリズムを安定させた方がいい。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_02.mp3')">▶</button></div></details><details class="focus-chip"><summary>我只想先把状态找回来。</summary>
+<div class="focus-body"><div class="focus-zh">我只想先把状态找回来。</div><div class="focus-ja">まず調子を取り戻したいだけ。</div>
+<button class="mini-btn" onclick="playAudio('audio/focus_03.mp3')">▶</button></div></details></div></section>
+<section class="compact-card"><h2>見ずに言う文 3つ</h2><ol class="review-list"><li>要不我们一起去？</li><li>与其勉强自己，不如先稳定节奏。</li><li>我只想先把状态找回来。</li></ol></section>
+<p class="help">12〜14文の短縮版です。まずは全文ではなく、ゴール文＋見ずに言う文3つを口に残すことを目標にします。</p><section class="script-list"><article class="line-item speaker-line-A" id="line-1">
+<div class="line-top"><span class="num">01</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(0, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(0, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>午後も図書館に行く？静かな場所で少し作業したいんだ。</div></details></div>
+<p class="zh">你下午还去图书馆吗？我想找个地方安静地做点事情。</p><p class="py">Nǐ xiàwǔ hái qù túshūguǎn ma? Wǒ xiǎng zhǎo gè dìfang ānjìng de zuò diǎn shìqing.</p>
+<div class="meta-row"><span class="gloss-chip"><b>安静</b> <span>ānjìng</span>：静かな</span></div></article><article class="line-item speaker-line-B" id="line-2">
+<div class="line-top"><span class="num">02</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(1, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(1, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>私もちょうど行こうと思ってた。今日はオフィスが少しうるさくて、あまり集中できない。</div></details></div>
+<p class="zh">我也正想去。办公室今天有点吵，我不太集中得起来。</p><p class="py">Wǒ yě zhèng xiǎng qù. Bàngōngshì jīntiān yǒudiǎn chǎo, wǒ bú tài jízhōng de qǐlái.</p>
+<div class="meta-row"><span class="gloss-chip"><b>正想</b> <span>zhèng xiǎng</span>：ちょうど〜しようと思っている</span><span class="gloss-chip"><b>集中得起来</b> <span>jízhōng de qǐlái</span>：集中できる</span></div></article><article class="line-item speaker-line-A" id="line-3">
+<div class="line-top"><span class="num">03</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(2, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(2, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>じゃあ一緒に行かない？でもあまり目立つ席には座りたくない。</div></details></div>
+<p class="zh">那要不我们一起去？但我不想坐在太显眼的位置。</p><p class="py">Nà yàobù wǒmen yìqǐ qù? Dàn wǒ bù xiǎng zuò zài tài xiǎnyǎn de wèizhi.</p>
+<div class="meta-row"><span class="gloss-chip"><b>要不</b> <span>yàobù</span>：じゃあ〜しない？</span><span class="gloss-chip"><b>显眼</b> <span>xiǎnyǎn</span>：目立つ</span></div></article><article class="line-item speaker-line-B" id="line-4">
+<div class="line-top"><span class="num">04</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(3, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(3, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>わかる。窓際の席はいいけど、時々人の出入りがあって気が散るよね。</div></details></div>
+<p class="zh">我懂。靠窗的位置不错，但有时候人来人往，也会分心。</p><p class="py">Wǒ dǒng. Kào chuāng de wèizhi búcuò, dàn yǒu shíhou rén lái rén wǎng, yě huì fēnxīn.</p>
+<div class="meta-row"><span class="gloss-chip"><b>人来人往</b> <span>rén lái rén wǎng</span>：人の行き来が多い</span><span class="gloss-chip"><b>分心</b> <span>fēnxīn</span>：気が散る</span></div></article><article class="line-item speaker-line-A" id="line-5">
+<div class="line-top"><span class="num">05</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(4, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(4, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>最近気づいたんだけど、環境が乱れるとすぐ先延ばししやすくなる。</div></details></div>
+<p class="zh">我最近发现，环境一乱，我就很容易拖延。</p><p class="py">Wǒ zuìjìn fāxiàn, huánjìng yí luàn, wǒ jiù hěn róngyì tuōyán.</p>
+<div class="meta-row"><span class="gloss-chip"><b>拖延</b> <span>tuōyán</span>：先延ばしにする</span></div></article><article class="line-item speaker-line-B" id="line-6">
+<div class="line-top"><span class="num">06</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(5, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(5, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>それは確かに。私も、隣でずっと話している人がいると、効率が明らかに下がる。</div></details></div>
+<p class="zh">这倒也是。我也是，旁边有人一直聊天的话，我效率会明显下降。</p><p class="py">Zhè dào yě shì. Wǒ yě shì, pángbiān yǒu rén yìzhí liáotiān dehuà, wǒ xiàolǜ huì míngxiǎn xiàjiàng.</p>
+<div class="meta-row"><span class="gloss-chip"><b>效率</b> <span>xiàolǜ</span>：効率</span><span class="gloss-chip"><b>明显下降</b> <span>míngxiǎn xiàjiàng</span>：明らかに下がる</span></div></article><article class="line-item speaker-line-A" id="line-7">
+<div class="line-top"><span class="num">07</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(6, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(6, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>じゃあ3階の少し奥の席に行こう。あそこは比較的静かで、寒すぎないし。</div></details></div>
+<p class="zh">那我们去三楼里面一点的位置吧。那里比较安静，也不太冷。</p><p class="py">Nà wǒmen qù sān lóu lǐmiàn yìdiǎn de wèizhi ba. Nàli bǐjiào ānjìng, yě bú tài lěng.</p>
+<div class="meta-row"><span class="empty-chip">語注なし</span></div></article><article class="line-item speaker-line-B" id="line-8">
+<div class="line-top"><span class="num">08</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(7, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(7, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>いいね。先に各自1時間作業して、その後少し休憩する？</div></details></div>
+<p class="zh">可以。我们要不要先各自做一个小时，然后再休息一下？</p><p class="py">Kěyǐ. Wǒmen yào bu yào xiān gèzì zuò yí gè xiǎoshí, ránhòu zài xiūxi yíxià?</p>
+<div class="meta-row"><span class="gloss-chip"><b>各自</b> <span>gèzì</span>：それぞれ、各自</span></div></article><article class="line-item speaker-line-A" id="line-9">
+<div class="line-top"><span class="num">09</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(8, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(8, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>その予定はけっこう合ってるね。ずっと座ったままだと、かえってどんどん疲れる。</div></details></div>
+<p class="zh">这个安排挺合适的。一直坐着不动，我反而会越来越累。</p><p class="py">Zhège ānpái tǐng héshì de. Yìzhí zuòzhe bú dòng, wǒ fǎn&#x27;ér huì yuè lái yuè lèi.</p>
+<div class="meta-row"><span class="gloss-chip"><b>合适</b> <span>héshì</span>：合っている</span><span class="gloss-chip"><b>反而</b> <span>fǎn&#x27;ér</span>：かえって</span></div></article><article class="line-item speaker-line-B" id="line-10">
+<div class="line-top"><span class="num">10</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(9, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(9, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>そうだね。休憩の時に外を少し歩いて、気分転換できるし。</div></details></div>
+<p class="zh">对，休息的时候可以出去走一圈，换换心情。</p><p class="py">Duì, xiūxi de shíhou kěyǐ chūqù zǒu yì quān, huàn huàn xīnqíng.</p>
+<div class="meta-row"><span class="gloss-chip"><b>走一圈</b> <span>zǒu yì quān</span>：一回り歩く</span><span class="gloss-chip"><b>换换心情</b> <span>huàn huàn xīnqíng</span>：気分転換する</span></div></article><article class="line-item speaker-line-A" id="line-11">
+<div class="line-top"><span class="num">11</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(10, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(10, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>正直、今日は自分を追い込みすぎたくなくて、まず調子を取り戻したいだけ。</div></details></div>
+<p class="zh">说实话，我今天不想逼自己太狠，只想先把状态找回来。</p><p class="py">Shuō shíhuà, wǒ jīntiān bù xiǎng bī zìjǐ tài hěn, zhǐ xiǎng xiān bǎ zhuàngtài zhǎo huílái.</p>
+<div class="meta-row"><span class="gloss-chip"><b>逼自己</b> <span>bī zìjǐ</span>：自分を追い込む</span><span class="gloss-chip"><b>状态</b> <span>zhuàngtài</span>：調子、状態</span></div></article><article class="line-item speaker-line-B" id="line-12">
+<div class="line-top"><span class="num">12</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(11, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(11, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>その方がいいと思う。無理するより、まずリズムを安定させた方がいい。</div></details></div>
+<p class="zh">我觉得这样比较好。与其勉强自己，不如先稳定节奏。</p><p class="py">Wǒ juéde zhèyàng bǐjiào hǎo. Yǔqí miǎnqiǎng zìjǐ, bùrú xiān wěndìng jiézòu.</p>
+<div class="meta-row"><span class="gloss-chip"><b>与其A，不如B</b> <span>yǔqí A, bùrú B</span>：AするよりBした方がいい</span><span class="gloss-chip"><b>稳定节奏</b> <span>wěndìng jiézòu</span>：リズムを安定させる</span></div></article><article class="line-item speaker-line-A" id="line-13">
+<div class="line-top"><span class="num">13</span><span class="speaker speaker-A">A</span>
+<button class="mini-btn" onclick="jumpAndPlay(12, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(12, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>じゃあそうしよう。2時半に図書館の入口で会う？</div></details></div>
+<p class="zh">那就这样吧。我们两点半在图书馆门口见？</p><p class="py">Nà jiù zhèyàng ba. Wǒmen liǎng diǎn bàn zài túshūguǎn ménkǒu jiàn?</p>
+<div class="meta-row"><span class="empty-chip">語注なし</span></div></article><article class="line-item speaker-line-B" id="line-14">
+<div class="line-top"><span class="num">14</span><span class="speaker speaker-B">B</span>
+<button class="mini-btn" onclick="jumpAndPlay(13, 'normal')">▶</button><button class="mini-btn" onclick="jumpAndPlay(13, 'slow')">ゆっくり</button>
+<details class="translation inline-translation"><summary>訳</summary><div>いいよ。もし私が数分遅れたら、先に入って席を探してくれて大丈夫。</div></details></div>
+<p class="zh">好。到时候如果我晚几分钟，你先进去找位置就行。</p><p class="py">Hǎo. Dào shíhou rúguǒ wǒ wǎn jǐ fēnzhōng, nǐ xiān jìnqù zhǎo wèizhi jiù xíng.</p>
+<div class="meta-row"><span class="gloss-chip"><b>到时候</b> <span>dào shíhou</span>：その時になったら</span><span class="gloss-chip"><b>就行</b> <span>jiù xíng</span>：それで大丈夫</span></div></article></section></main><audio id="player"></audio><script>
+const player=document.getElementById('player');const statusEl=document.getElementById('status');
+const normalFiles=["audio/line_01_normal.mp3",
+  "audio/line_02_normal.mp3",
+  "audio/line_03_normal.mp3",
+  "audio/line_04_normal.mp3",
+  "audio/line_05_normal.mp3",
+  "audio/line_06_normal.mp3",
+  "audio/line_07_normal.mp3",
+  "audio/line_08_normal.mp3",
+  "audio/line_09_normal.mp3",
+  "audio/line_10_normal.mp3",
+  "audio/line_11_normal.mp3",
+  "audio/line_12_normal.mp3",
+  "audio/line_13_normal.mp3",
+  "audio/line_14_normal.mp3"];const slowFiles=["audio/line_01_slow.mp3",
+  "audio/line_02_slow.mp3",
+  "audio/line_03_slow.mp3",
+  "audio/line_04_slow.mp3",
+  "audio/line_05_slow.mp3",
+  "audio/line_06_slow.mp3",
+  "audio/line_07_slow.mp3",
+  "audio/line_08_slow.mp3",
+  "audio/line_09_slow.mp3",
+  "audio/line_10_slow.mp3",
+  "audio/line_11_slow.mp3",
+  "audio/line_12_slow.mp3",
+  "audio/line_13_slow.mp3",
+  "audio/line_14_slow.mp3"];
+let currentIndex=0,sequenceMode=null,sequenceTimer=null,isSequencePlaying=false;const normalPauseMs=400,slowPauseMs=500;
+function updateCurrentLine(scroll=false){document.querySelectorAll('.line-item').forEach((el,idx)=>{el.classList.toggle('current',idx===currentIndex);});statusEl.textContent=`現在 ${String(currentIndex+1).padStart(2,'0')} / 14`;if(scroll){const el=document.getElementById(`line-${currentIndex+1}`);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function fileFor(index,mode){return (mode==='slow'?slowFiles:normalFiles)[index];}
+function playAudio(src){clearPendingTimer();isSequencePlaying=false;sequenceMode=null;player.src=src;player.currentTime=0;player.onended=null;player.play().catch(err=>{statusEl.textContent='再生できません: '+src;console.error(err);});}
+function jumpAndPlay(index,mode){currentIndex=index;updateCurrentLine(true);clearPendingTimer();isSequencePlaying=false;sequenceMode=null;player.src=fileFor(currentIndex,mode);player.currentTime=0;player.onended=null;player.play();}
+function playSequence(mode){clearPendingTimer();sequenceMode=mode;isSequencePlaying=true;playCurrentInSequence();}
+function playCurrentInSequence(){if(!isSequencePlaying||currentIndex>=normalFiles.length){isSequencePlaying=false;statusEl.textContent='再生終了';return;}updateCurrentLine(true);player.src=fileFor(currentIndex,sequenceMode);player.currentTime=0;player.onended=()=>{currentIndex+=1;if(currentIndex>=normalFiles.length){isSequencePlaying=false;statusEl.textContent='再生終了';return;}const pauseMs=sequenceMode==='slow'?slowPauseMs:normalPauseMs;sequenceTimer=setTimeout(playCurrentInSequence,pauseMs);};player.play().catch(err=>{statusEl.textContent='再生できません';console.error(err);});}
+function pauseAudio(){player.pause();clearPendingTimer();statusEl.textContent=`一時停止 ${String(currentIndex+1).padStart(2,'0')} / 14`;}
+function resumeAudio(){if(player.src){player.play();statusEl.textContent=`再開 ${String(currentIndex+1).padStart(2,'0')} / 14`;}}
+function stopAudio(){clearPendingTimer();isSequencePlaying=false;sequenceMode=null;player.pause();player.currentTime=0;player.onended=null;updateCurrentLine(false);}
+function clearPendingTimer(){if(sequenceTimer){clearTimeout(sequenceTimer);sequenceTimer=null;}}
+function prevLine(){stopAudio();currentIndex=Math.max(0,currentIndex-1);updateCurrentLine(true);}
+function nextLine(){stopAudio();currentIndex=Math.min(normalFiles.length-1,currentIndex+1);updateCurrentLine(true);}
+function toggleAllTranslations(open){document.querySelectorAll('details.translation').forEach(d=>{d.open=open;});}
+updateCurrentLine(false);
+</script></body></html>
