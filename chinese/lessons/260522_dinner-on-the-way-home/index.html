@@ -1,0 +1,85 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中国語音読教材 Day 5：帰り道に夕飯をどうするか相談する</title>
+<style>
+body{margin:0;background:#f6f7f8;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;line-height:1.45}
+header{position:sticky;top:0;background:rgba(255,255,255,.97);border-bottom:1px solid #ddd;padding:8px;z-index:10}
+.wrap,main{max-width:980px;margin:auto}h1{font-size:17px;margin:0 0 6px}button{border:1px solid #b9c2cc;background:white;border-radius:999px;padding:5px 9px;font-size:12px;margin:2px}
+.card{background:white;border:1px solid #ddd;border-radius:12px;padding:10px;margin:9px 6px}.goal{background:#fff7df}
+.line{padding:9px;border-bottom:1px solid #ddd;scroll-margin-top:105px}.line.A{background:#f3f8ff;border-left:5px solid #9fc5ff}.line.B{background:#f4fbf3;border-left:5px solid #a8d8a8}.line.current{box-shadow:inset 0 0 0 2px #1f6feb}
+.top{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.speaker{border-radius:999px;background:#eee;padding:2px 8px;font-weight:bold}.zh{font-size:20px;line-height:1.35;margin-top:4px}.py{font-size:13.5px;color:#666;margin-top:2px}
+.chip{display:inline-flex;border:1px solid #c8dcff;background:#eef5ff;border-radius:999px;padding:3px 8px;font-size:12px;margin:2px}details.tr summary{display:inline-block;border:1px solid #ddd;border-radius:999px;padding:3px 8px;color:#1f6feb;cursor:pointer}details.tr div{background:#fff;padding:6px;border-radius:8px;margin-top:5px}.focus{display:inline-block;border:1px solid #c8dcff;background:#eef5ff;border-radius:12px;padding:6px;margin:3px;font-size:13px}.ja{color:#666}#status{font-size:12px;color:#666}
+</style></head><body>
+<header><div class="wrap"><h1>中国語音読教材 Day 5：帰り道に夕飯をどうするか相談する</h1>
+<button onclick="playSeq('normal')">全体▶</button><button onclick="playSeq('slow')">全体ゆっくり</button><button onclick="pauseAudio()">一時停止</button><button onclick="resumeAudio()">再開</button><button onclick="stopAudio()">停止</button><button onclick="prev()">前</button><button onclick="next()">次</button><button onclick="toggleTr(true)">訳 全表示</button><button onclick="toggleTr(false)">訳 非表示</button><span id="status">現在 01 / 14</span></div></header>
+<main>
+<section class="card goal"><h2>今日のゴール</h2><div class="zh">与其回家以后再犹豫，不如现在顺路吃完，早点回去休息。</div><div class="py">Yǔqí huí jiā yǐhòu zài yóuyù, bùrú xiànzài shùnlù chī wán, zǎodiǎn huíqù xiūxi.</div><button onclick="playOne('audio/goal_normal.mp3')">▶</button><button onclick="playOne('audio/goal_slow.mp3')">ゆっくり</button><details class="tr"><summary>訳</summary><div>家に帰ってからまた迷うより、今ついでに食べ終えて、早めに帰って休んだ方がいい。</div></details></section>
+<section class="card"><h2>覚えたい表現</h2><details class="focus"><summary>要不我们在车站附近吃点东西？</summary><div>要不我们在车站附近吃点东西？</div><div class="ja">じゃあ駅の近くで何か食べない？</div><button onclick="playOne('audio/focus_01.mp3')">▶</button></details><details class="focus"><summary>与其回家以后再犹豫，不如现在顺路吃完。</summary><div>与其回家以后再犹豫，不如现在顺路吃完。</div><div class="ja">家に帰ってからまた迷うより、今ついでに食べ終えた方がいい。</div><button onclick="playOne('audio/focus_02.mp3')">▶</button></details><details class="focus"><summary>今天不追求特别好吃，只要舒服一点就行。</summary><div>今天不追求特别好吃，只要舒服一点就行。</div><div class="ja">今日は特別においしいものを追求せず、少し楽ならそれでいい。</div><button onclick="playOne('audio/focus_03.mp3')">▶</button></details></section>
+<section class="card"><h2>今日口に残す表現</h2><ol><li>要不我们在车站附近吃点东西？</li><li>与其回家以后再犹豫，不如现在顺路吃完。</li><li>今天不追求特别好吃，只要舒服一点就行。</li></ol></section>
+<section class="card"><article class="line A" id="line-1">
+<div class="top"><b>01</b><span class="speaker">A</span>
+<button onclick="jump(0,'normal')">▶</button><button onclick="jump(0,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>今夜ごはんどうするつもり？ちょっと自分で作る気がしない。</div></details></div>
+<div class="zh">今天晚上你打算怎么吃？我有点不想自己做饭。</div><div class="py">Jīntiān wǎnshang nǐ dǎsuàn zěnme chī? Wǒ yǒudiǎn bù xiǎng zìjǐ zuò fàn.</div><div class="gloss"><span class="chip"><b>打算</b> dǎsuàn：〜するつもり</span></div></article><article class="line B" id="line-2">
+<div class="top"><b>02</b><span class="speaker">B</span>
+<button onclick="jump(1,'normal')">▶</button><button onclick="jump(1,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>私も。今日は少し疲れていて、簡単なものを食べたいだけ。</div></details></div>
+<div class="zh">我也是。今天有点累，只想吃点简单的。</div><div class="py">Wǒ yě shì. Jīntiān yǒudiǎn lèi, zhǐ xiǎng chī diǎn jiǎndān de.</div><div class="gloss"><span class="chip">語注なし</span></div></article><article class="line A" id="line-3">
+<div class="top"><b>03</b><span class="speaker">A</span>
+<button onclick="jump(2,'normal')">▶</button><button onclick="jump(2,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>じゃあ駅の近くで何か食べない？わざわざ遠回りしなくていいし。</div></details></div>
+<div class="zh">要不我们在车站附近吃点东西？不用特意绕路。</div><div class="py">Yàobù wǒmen zài chēzhàn fùjìn chī diǎn dōngxi? Bú yòng tèyì ràolù.</div><div class="gloss"><span class="chip"><b>要不</b> yàobù：じゃあ〜しない？</span><span class="chip"><b>绕路</b> ràolù：遠回りする</span></div></article><article class="line B" id="line-4">
+<div class="top"><b>04</b><span class="speaker">B</span>
+<button onclick="jump(3,'normal')">▶</button><button onclick="jump(3,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>いいね。でも油っこすぎるものは食べたくない。明日の朝も早く起きないといけないし。</div></details></div>
+<div class="zh">可以。可是我不想吃太油的，明天早上还得早点起来。</div><div class="py">Kěyǐ. Kěshì wǒ bù xiǎng chī tài yóu de, míngtiān zǎoshang hái děi zǎodiǎn qǐlái.</div><div class="gloss"><span class="chip"><b>得</b> děi：〜しなければならない</span></div></article><article class="line A" id="line-5">
+<div class="top"><b>05</b><span class="speaker">A</span>
+<button onclick="jump(4,'normal')">▶</button><button onclick="jump(4,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>それは確かに。重すぎるものを食べると、夜かえってよく眠れない。</div></details></div>
+<div class="zh">这倒也是。吃太重的话，晚上反而睡不好。</div><div class="py">Zhè dào yě shì. Chī tài zhòng dehuà, wǎnshang fǎn&#x27;ér shuì bù hǎo.</div><div class="gloss"><span class="chip"><b>这倒也是</b> zhè dào yě shì：それは確かに</span><span class="chip"><b>反而</b> fǎn&#x27;ér：かえって</span></div></article><article class="line B" id="line-6">
+<div class="top"><b>06</b><span class="speaker">B</span>
+<button onclick="jump(5,'normal')">▶</button><button onclick="jump(5,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>じゃあ少しあっさりした店にしよう。例えば麺とか、お粥とか。</div></details></div>
+<div class="zh">那我们选个清淡一点的店吧。比如说面，或者粥。</div><div class="py">Nà wǒmen xuǎn gè qīngdàn yìdiǎn de diàn ba. Bǐrú shuō miàn, huòzhě zhōu.</div><div class="gloss"><span class="chip"><b>清淡</b> qīngdàn：あっさりした</span><span class="chip"><b>粥</b> zhōu：お粥</span></div></article><article class="line A" id="line-7">
+<div class="top"><b>07</b><span class="speaker">A</span>
+<button onclick="jump(6,'normal')">▶</button><button onclick="jump(6,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>麺が合っている気がする。早く食べられるし、高すぎない。</div></details></div>
+<div class="zh">我觉得面比较合适。吃得快，也不会太贵。</div><div class="py">Wǒ juéde miàn bǐjiào héshì. Chī de kuài, yě bú huì tài guì.</div><div class="gloss"><span class="chip"><b>合适</b> héshì：合っている</span></div></article><article class="line B" id="line-8">
+<div class="top"><b>08</b><span class="speaker">B</span>
+<button onclick="jump(7,'normal')">▶</button><button onclick="jump(7,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>いいね。家に帰ってからまた迷うより、今ついでに食べ終えた方がいい。</div></details></div>
+<div class="zh">好。与其回家以后再犹豫，不如现在顺路吃完。</div><div class="py">Hǎo. Yǔqí huí jiā yǐhòu zài yóuyù, bùrú xiànzài shùnlù chī wán.</div><div class="gloss"><span class="chip"><b>与其A，不如B</b> yǔqí A, bùrú B：AするよりBした方がいい</span><span class="chip"><b>顺路</b> shùnlù：道のついでに</span></div></article><article class="line A" id="line-9">
+<div class="top"><b>09</b><span class="speaker">A</span>
+<button onclick="jump(8,'normal')">▶</button><button onclick="jump(8,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>正直、最近夜ごはんをかなり遅くまで先延ばしにしがちなんだよね。</div></details></div>
+<div class="zh">说实话，我最近晚上总是拖到很晚才吃饭。</div><div class="py">Shuō shíhuà, wǒ zuìjìn wǎnshang zǒngshì tuō dào hěn wǎn cái chī fàn.</div><div class="gloss"><span class="chip"><b>拖到</b> tuō dào：〜まで引き延ばす</span></div></article><article class="line B" id="line-10">
+<div class="top"><b>10</b><span class="speaker">B</span>
+<button onclick="jump(9,'normal')">▶</button><button onclick="jump(9,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>わかる。疲れすぎていると、何を食べるか決めることさえ面倒に感じる。</div></details></div>
+<div class="zh">我懂。太累的时候，连决定吃什么都觉得麻烦。</div><div class="py">Wǒ dǒng. Tài lèi de shíhou, lián juédìng chī shénme dōu juéde máfan.</div><div class="gloss"><span class="chip"><b>连…都</b> lián…dōu：〜でさえ</span><span class="chip"><b>麻烦</b> máfan：面倒な</span></div></article><article class="line A" id="line-11">
+<div class="top"><b>11</b><span class="speaker">A</span>
+<button onclick="jump(10,'normal')">▶</button><button onclick="jump(10,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>だから今日は簡単にしよう。食べ終わったら早めに帰って休もう。</div></details></div>
+<div class="zh">所以今天就简单一点吧。吃完早点回去休息。</div><div class="py">Suǒyǐ jīntiān jiù jiǎndān yìdiǎn ba. Chī wán zǎodiǎn huíqù xiūxi.</div><div class="gloss"><span class="chip">語注なし</span></div></article><article class="line B" id="line-12">
+<div class="top"><b>12</b><span class="speaker">B</span>
+<button onclick="jump(11,'normal')">▶</button><button onclick="jump(11,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>いいね。今日は特別においしいものを追求しなくていい。少し楽ならそれで十分。</div></details></div>
+<div class="zh">可以。今天不追求特别好吃，只要舒服一点就行。</div><div class="py">Kěyǐ. Jīntiān bù zhuīqiú tèbié hǎochī, zhǐyào shūfu yìdiǎn jiù xíng.</div><div class="gloss"><span class="chip"><b>追求</b> zhuīqiú：追求する</span><span class="chip"><b>就行</b> jiù xíng：それで大丈夫</span></div></article><article class="line A" id="line-13">
+<div class="top"><b>13</b><span class="speaker">A</span>
+<button onclick="jump(12,'normal')">▶</button><button onclick="jump(12,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>じゃあそうしよう。あの麺屋を見に行こう。</div></details></div>
+<div class="zh">那就这样吧。我们去那家面馆看看。</div><div class="py">Nà jiù zhèyàng ba. Wǒmen qù nà jiā miànguǎn kànkan.</div><div class="gloss"><span class="chip"><b>面馆</b> miànguǎn：麺料理の店</span></div></article><article class="line B" id="line-14">
+<div class="top"><b>14</b><span class="speaker">B</span>
+<button onclick="jump(13,'normal')">▶</button><button onclick="jump(13,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>いいね。人が多すぎたら別の店にしよう。このことで力を使いすぎないようにしよう。</div></details></div>
+<div class="zh">好。如果人太多，我们再换一家，别在这件事上花太多力气。</div><div class="py">Hǎo. Rúguǒ rén tài duō, wǒmen zài huàn yì jiā, bié zài zhè jiàn shì shàng huā tài duō lìqi.</div><div class="gloss"><span class="chip"><b>换一家</b> huàn yì jiā：別の店に変える</span><span class="chip"><b>花力气</b> huā lìqi：労力を使う</span></div></article></section>
+</main><audio id="player"></audio>
+<script>
+const player=document.getElementById('player');const statusEl=document.getElementById('status');const normal=["audio/line_01_normal.mp3","audio/line_02_normal.mp3","audio/line_03_normal.mp3","audio/line_04_normal.mp3","audio/line_05_normal.mp3","audio/line_06_normal.mp3","audio/line_07_normal.mp3","audio/line_08_normal.mp3","audio/line_09_normal.mp3","audio/line_10_normal.mp3","audio/line_11_normal.mp3","audio/line_12_normal.mp3","audio/line_13_normal.mp3","audio/line_14_normal.mp3"];const slow=["audio/line_01_slow.mp3","audio/line_02_slow.mp3","audio/line_03_slow.mp3","audio/line_04_slow.mp3","audio/line_05_slow.mp3","audio/line_06_slow.mp3","audio/line_07_slow.mp3","audio/line_08_slow.mp3","audio/line_09_slow.mp3","audio/line_10_slow.mp3","audio/line_11_slow.mp3","audio/line_12_slow.mp3","audio/line_13_slow.mp3","audio/line_14_slow.mp3"];let idx=0,mode=null,timer=null,seq=false;
+function update(scroll=false){document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('current',i===idx));statusEl.textContent=`現在 ${String(idx+1).padStart(2,'0')} / 14`;if(scroll)document.getElementById(`line-${idx+1}`).scrollIntoView({behavior:'smooth',block:'center'});}
+function file(i,m){return (m==='slow'?slow:normal)[i];}function clearT(){if(timer){clearTimeout(timer);timer=null;}}
+function playOne(src){clearT();seq=false;player.src=src;player.currentTime=0;player.onended=null;player.play();}
+function jump(i,m){idx=i;update(true);playOne(file(idx,m));}
+function playSeq(m){clearT();mode=m;seq=true;playCur();}
+function playCur(){if(!seq||idx>=normal.length){seq=false;return;}update(true);player.src=file(idx,mode);player.currentTime=0;player.onended=()=>{idx++; if(idx>=normal.length){seq=false;statusEl.textContent='再生終了';return;} timer=setTimeout(playCur,mode==='slow'?500:400);};player.play();}
+function pauseAudio(){player.pause();clearT();}function resumeAudio(){if(player.src)player.play();}function stopAudio(){clearT();seq=false;player.pause();player.currentTime=0;player.onended=null;update(false);}
+function prev(){stopAudio();idx=Math.max(0,idx-1);update(true);}function next(){stopAudio();idx=Math.min(normal.length-1,idx+1);update(true);}function toggleTr(open){document.querySelectorAll('details.tr').forEach(d=>d.open=open);}update(false);
+</script></body></html>
