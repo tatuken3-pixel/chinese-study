@@ -1,0 +1,109 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>English Shadowing Day 3: Discussing results carefully</title>
+<style>
+body{margin:0;background:#f6f7f8;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;line-height:1.45}
+header{position:sticky;top:0;background:rgba(255,255,255,.97);border-bottom:1px solid #ddd;padding:8px;z-index:10}
+.wrap,main{max-width:980px;margin:auto}h1{font-size:17px;margin:0 0 6px}button{border:1px solid #b9c2cc;background:white;border-radius:999px;padding:5px 9px;font-size:12px;margin:2px}
+.card{background:white;border:1px solid #ddd;border-radius:12px;padding:10px;margin:9px 6px}.goal{background:#fff7df}
+.line{padding:9px;border-bottom:1px solid #ddd;scroll-margin-top:105px}.line.A{background:#f3f8ff;border-left:5px solid #9fc5ff}.line.B{background:#f4fbf3;border-left:5px solid #a8d8a8}.line.current{box-shadow:inset 0 0 0 2px #1f6feb}
+.top{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.speaker{border-radius:999px;background:#eee;padding:2px 8px;font-weight:bold}.zh{font-size:20px;line-height:1.35;margin-top:4px}.py{font-size:13.5px;color:#666;margin-top:2px}
+.chip{display:inline-flex;border:1px solid #c8dcff;background:#eef5ff;border-radius:999px;padding:3px 8px;font-size:12px;margin:2px}details.tr summary{display:inline-block;border:1px solid #ddd;border-radius:999px;padding:3px 8px;color:#1f6feb;cursor:pointer}details.tr div{background:#fff;padding:6px;border-radius:8px;margin-top:5px}.focus{display:inline-block;border:1px solid #c8dcff;background:#eef5ff;border-radius:12px;padding:6px;margin:3px;font-size:13px}.ja{color:#666}#status{font-size:12px;color:#666}
+</style></head><body>
+<header><div class="wrap"><h1>English Shadowing Day 3: Discussing results carefully</h1>
+<button onclick="playSeq('normal')">全体▶</button><button onclick="playSeq('slow')">全体ゆっくり</button><button onclick="pauseAudio()">一時停止</button><button onclick="resumeAudio()">再開</button><button onclick="stopAudio()">停止</button><button onclick="prev()">前</button><button onclick="next()">次</button><button onclick="toggleTr(true)">訳 全表示</button><button onclick="toggleTr(false)">訳 非表示</button><span id="status">現在 01 / 20</span></div></header>
+<main>
+<section class="card goal"><h2>今日のゴール</h2><div class="zh">These data suggest a possible trend, but we need more data before drawing a firm conclusion.</div><button onclick="playOne('audio/goal_normal.mp3')">▶</button><button onclick="playOne('audio/goal_slow.mp3')">ゆっくり</button><details class="tr"><summary>訳</summary><div>これらのデータは可能性のある傾向を示唆しているが、確かな結論を出す前にさらにデータが必要です。</div></details></section>
+<section class="card"><h2>使いたい表現</h2><details class="focus"><summary>I’m not sure how to interpret them yet.</summary><div>I’m not sure how to interpret them yet.</div><div class="ja">まだどう解釈すればいいかはっきりしていません。</div><button onclick="playOne('audio/focus_01.mp3')">▶</button></details><details class="focus"><summary>Maybe we should separate the main trend from the exception.</summary><div>Maybe we should separate the main trend from the exception.</div><div class="ja">主な傾向と例外を分けて考えた方がいいかもしれません。</div><button onclick="playOne('audio/focus_02.mp3')">▶</button></details><details class="focus"><summary>These data suggest..., rather than these data show...</summary><div>Maybe we should say, “These data suggest,” rather than “These data show.”</div><div class="ja">『示している』ではなく『示唆している』と言った方がいいかもしれません。</div><button onclick="playOne('audio/focus_03.mp3')">▶</button></details><details class="focus"><summary>I would include the summary in the main slide.</summary><div>I would include the summary in the main slide and put the detailed replicates in backup.</div><div class="ja">私ならメインスライドには要約を入れます。</div><button onclick="playOne('audio/focus_04.mp3')">▶</button></details><details class="focus"><summary>We need more data before drawing a firm conclusion.</summary><div>We need more data before drawing a firm conclusion.</div><div class="ja">確かな結論を出す前に、さらにデータが必要です。</div><button onclick="playOne('audio/focus_05.mp3')">▶</button></details></section>
+<section class="card"><h2>今日口に残す表現</h2><ol><li>I’m not sure how to interpret them yet.</li><li>Maybe we should say, “These data suggest,” rather than “These data show.”</li><li>We need more data before drawing a firm conclusion.</li></ol></section>
+<section class="card"><article class="line A" id="line-1">
+<div class="top"><b>01</b><span class="speaker">A</span>
+<button onclick="jump(0,'normal')">▶</button><button onclick="jump(0,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>今朝新しい結果を見たんだけど、まだどう解釈すればいいかはっきりしていない。</div></details></div>
+<div class="zh">I looked at the new results this morning, but I’m not sure how to interpret them yet.</div><div class="gloss"><span class="chip"><b>interpret the results</b>：結果を解釈する</span></div></article><article class="line B" id="line-2">
+<div class="top"><b>02</b><span class="speaker">B</span>
+<button onclick="jump(1,'normal')">▶</button><button onclick="jump(1,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>なるほど。予想していたパターンと違っているの？</div></details></div>
+<div class="zh">I see. Is the pattern different from what you expected?</div><div class="gloss"><span class="chip"><b>pattern</b>：パターン、傾向</span></div></article><article class="line A" id="line-3">
+<div class="top"><b>03</b><span class="speaker">A</span>
+<button onclick="jump(2,'normal')">▶</button><button onclick="jump(2,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>ある程度はそう。全体的な傾向はあるんだけど、1つの条件だけ違う動きをしている。</div></details></div>
+<div class="zh">Kind of. The overall trend is there, but one condition behaves differently.</div><div class="gloss"><span class="chip"><b>overall trend</b>：全体的な傾向</span><span class="chip"><b>condition</b>：条件</span></div></article><article class="line B" id="line-4">
+<div class="top"><b>04</b><span class="speaker">B</span>
+<button onclick="jump(3,'normal')">▶</button><button onclick="jump(3,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>なるほど。主な傾向と例外を分けて考えた方がいいかも。</div></details></div>
+<div class="zh">That makes sense. Maybe we should separate the main trend from the exception.</div><div class="gloss"><span class="chip"><b>separate A from B</b>：AとBを分ける</span><span class="chip"><b>exception</b>：例外</span></div></article><article class="line A" id="line-5">
+<div class="top"><b>05</b><span class="speaker">A</span>
+<button onclick="jump(4,'normal')">▶</button><button onclick="jump(4,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>それはいい指摘だね。一緒にしてしまうと、説明の筋がわかりにくくなる。</div></details></div>
+<div class="zh">That’s a good point. If we mix them together, the story gets confusing.</div><div class="gloss"><span class="chip"><b>the story gets confusing</b>：説明の筋がわかりにくくなる</span></div></article><article class="line B" id="line-6">
+<div class="top"><b>06</b><span class="speaker">B</span>
+<button onclick="jump(5,'normal')">▶</button><button onclick="jump(5,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>確信はないけど、まず例外を示して、その後なぜ重要なのかを説明するとよいかもしれない。</div></details></div>
+<div class="zh">I’m not sure, but it might be useful to show the exception first and then explain why it matters.</div><div class="gloss"><span class="chip"><b>it might be useful to...</b>：〜すると有用かもしれない</span><span class="chip"><b>why it matters</b>：なぜ重要なのか</span></div></article><article class="line A" id="line-7">
+<div class="top"><b>07</b><span class="speaker">A</span>
+<button onclick="jump(6,'normal')">▶</button><button onclick="jump(6,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>言いたいことはわかる。そうすれば、扱いにくい部分を隠しているように見えないね。</div></details></div>
+<div class="zh">I see what you mean. That way, it doesn’t look like we are hiding the awkward part.</div><div class="gloss"><span class="chip"><b>awkward part</b>：扱いにくい部分</span></div></article><article class="line B" id="line-8">
+<div class="top"><b>08</b><span class="speaker">B</span>
+<button onclick="jump(7,'normal')">▶</button><button onclick="jump(7,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>そう。強く主張する代わりに、『この部分は追加検証が必要です』と言える。</div></details></div>
+<div class="zh">Exactly. And we can say, “This part needs further testing,” instead of making a strong claim.</div><div class="gloss"><span class="chip"><b>further testing</b>：追加検証</span><span class="chip"><b>make a strong claim</b>：強い主張をする</span></div></article><article class="line A" id="line-9">
+<div class="top"><b>09</b><span class="speaker">A</span>
+<button onclick="jump(8,'normal')">▶</button><button onclick="jump(8,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>その言い方の方が安全に感じる。結果を言い過ぎたくない。</div></details></div>
+<div class="zh">That wording feels safer. I don’t want to overstate the result.</div><div class="gloss"><span class="chip"><b>wording</b>：言い方、表現</span><span class="chip"><b>overstate</b>：言い過ぎる、誇張する</span></div></article><article class="line B" id="line-10">
+<div class="top"><b>10</b><span class="speaker">B</span>
+<button onclick="jump(9,'normal')">▶</button><button onclick="jump(9,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>そうだね。自信ありげに言いすぎずに、明確にすることはできる。</div></details></div>
+<div class="zh">Right. We can be clear without sounding too confident.</div><div class="gloss"><span class="chip"><b>be clear</b>：明確である</span><span class="chip"><b>sound too confident</b>：自信過剰に聞こえる</span></div></article><article class="line A" id="line-11">
+<div class="top"><b>11</b><span class="speaker">A</span>
+<button onclick="jump(10,'normal')">▶</button><button onclick="jump(10,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>『これらのデータは示している』ではなく、『示唆している』と言った方がいいかも。</div></details></div>
+<div class="zh">Maybe we should say, “These data suggest,” rather than “These data show.”</div><div class="gloss"><span class="chip"><b>suggest</b>：示唆する</span><span class="chip"><b>show</b>：示す</span></div></article><article class="line B" id="line-12">
+<div class="top"><b>12</b><span class="speaker">B</span>
+<button onclick="jump(11,'normal')">▶</button><button onclick="jump(11,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>賛成。suggest は不確実性の余地を残すから、この場合はより正確だと思う。</div></details></div>
+<div class="zh">I agree. “Suggest” leaves room for uncertainty, which is more accurate here.</div><div class="gloss"><span class="chip"><b>leave room for uncertainty</b>：不確実性の余地を残す</span><span class="chip"><b>accurate</b>：正確な</span></div></article><article class="line A" id="line-13">
+<div class="top"><b>13</b><span class="speaker">A</span>
+<button onclick="jump(12,'normal')">▶</button><button onclick="jump(12,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>もう1つの問題は、すべての反復をメインスライドに入れるべきかどうかだね。</div></details></div>
+<div class="zh">Another question is whether we should include all the replicates in the main slide.</div><div class="gloss"><span class="chip"><b>replicates</b>：反復、リプリケート</span><span class="chip"><b>main slide</b>：メインスライド</span></div></article><article class="line B" id="line-14">
+<div class="top"><b>14</b><span class="speaker">B</span>
+<button onclick="jump(13,'normal')">▶</button><button onclick="jump(13,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>メインスライドには要約を入れて、詳細な反復はバックアップに入れるかな。</div></details></div>
+<div class="zh">I would include the summary in the main slide and put the detailed replicates in backup.</div><div class="gloss"><span class="chip"><b>I would...</b>：私なら〜する</span><span class="chip"><b>backup</b>：補足スライド</span></div></article><article class="line A" id="line-15">
+<div class="top"><b>15</b><span class="speaker">A</span>
+<button onclick="jump(14,'normal')">▶</button><button onclick="jump(14,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>それは妥当だね。聴衆はたぶん最初に主なメッセージが必要だと思う。</div></details></div>
+<div class="zh">That sounds reasonable. The audience probably needs the main message first.</div><div class="gloss"><span class="chip"><b>reasonable</b>：妥当な</span><span class="chip"><b>main message</b>：主なメッセージ</span></div></article><article class="line B" id="line-16">
+<div class="top"><b>16</b><span class="speaker">B</span>
+<button onclick="jump(15,'normal')">▶</button><button onclick="jump(15,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>うん。誰かが聞いたら、バックアップを見せて詳細を説明できる。</div></details></div>
+<div class="zh">Yes. If someone asks, you can show the backup and explain the details.</div><div class="gloss"><span class="chip"><b>If someone asks</b>：誰かが聞いたら</span></div></article><article class="line A" id="line-17">
+<div class="top"><b>17</b><span class="speaker">A</span>
+<button onclick="jump(16,'normal')">▶</button><button onclick="jump(16,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>その構成に傾いている。よりシンプルで、より誠実に感じる。</div></details></div>
+<div class="zh">I’m leaning toward that structure. It feels simpler and more honest.</div><div class="gloss"><span class="chip"><b>I&#x27;m leaning toward...</b>：〜に傾いている</span><span class="chip"><b>structure</b>：構成</span></div></article><article class="line B" id="line-18">
+<div class="top"><b>18</b><span class="speaker">B</span>
+<button onclick="jump(17,'normal')">▶</button><button onclick="jump(17,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>それでいけると思う。ただ、限界点を明確に書いておくといい。</div></details></div>
+<div class="zh">I think that works. Just make sure the limitation is stated clearly.</div><div class="gloss"><span class="chip"><b>limitation</b>：限界、制約</span><span class="chip"><b>state clearly</b>：明確に述べる</span></div></article><article class="line A" id="line-19">
+<div class="top"><b>19</b><span class="speaker">A</span>
+<button onclick="jump(18,'normal')">▶</button><button onclick="jump(18,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>いいね。確かな結論を出す前に、さらにデータが必要だという文を1つ入れるよ。</div></details></div>
+<div class="zh">Good idea. I’ll add one sentence saying that we need more data before drawing a firm conclusion.</div><div class="gloss"><span class="chip"><b>draw a firm conclusion</b>：確かな結論を出す</span></div></article><article class="line B" id="line-20">
+<div class="top"><b>20</b><span class="speaker">B</span>
+<button onclick="jump(19,'normal')">▶</button><button onclick="jump(19,'slow')">ゆっくり</button>
+<details class="tr"><summary>訳</summary><div>その方が議論は弱くなるんじゃなくて、むしろ強くなると思う。</div></details></div>
+<div class="zh">That would make the discussion stronger, not weaker.</div><div class="gloss"><span class="chip"><b>make the discussion stronger</b>：議論を強くする</span></div></article></section>
+</main><audio id="player"></audio>
+<script>
+const player=document.getElementById('player');const statusEl=document.getElementById('status');const normal=["audio/line_01_normal.mp3","audio/line_02_normal.mp3","audio/line_03_normal.mp3","audio/line_04_normal.mp3","audio/line_05_normal.mp3","audio/line_06_normal.mp3","audio/line_07_normal.mp3","audio/line_08_normal.mp3","audio/line_09_normal.mp3","audio/line_10_normal.mp3","audio/line_11_normal.mp3","audio/line_12_normal.mp3","audio/line_13_normal.mp3","audio/line_14_normal.mp3","audio/line_15_normal.mp3","audio/line_16_normal.mp3","audio/line_17_normal.mp3","audio/line_18_normal.mp3","audio/line_19_normal.mp3","audio/line_20_normal.mp3"];const slow=["audio/line_01_slow.mp3","audio/line_02_slow.mp3","audio/line_03_slow.mp3","audio/line_04_slow.mp3","audio/line_05_slow.mp3","audio/line_06_slow.mp3","audio/line_07_slow.mp3","audio/line_08_slow.mp3","audio/line_09_slow.mp3","audio/line_10_slow.mp3","audio/line_11_slow.mp3","audio/line_12_slow.mp3","audio/line_13_slow.mp3","audio/line_14_slow.mp3","audio/line_15_slow.mp3","audio/line_16_slow.mp3","audio/line_17_slow.mp3","audio/line_18_slow.mp3","audio/line_19_slow.mp3","audio/line_20_slow.mp3"];let idx=0,mode=null,timer=null,seq=false;
+function update(scroll=false){document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('current',i===idx));statusEl.textContent=`現在 ${String(idx+1).padStart(2,'0')} / 20`;if(scroll)document.getElementById(`line-${idx+1}`).scrollIntoView({behavior:'smooth',block:'center'});}
+function file(i,m){return (m==='slow'?slow:normal)[i];}function clearT(){if(timer){clearTimeout(timer);timer=null;}}
+function playOne(src){clearT();seq=false;player.src=src;player.currentTime=0;player.onended=null;player.play();}
+function jump(i,m){idx=i;update(true);playOne(file(idx,m));}
+function playSeq(m){clearT();mode=m;seq=true;playCur();}
+function playCur(){if(!seq||idx>=normal.length){seq=false;return;}update(true);player.src=file(idx,mode);player.currentTime=0;player.onended=()=>{idx++; if(idx>=normal.length){seq=false;statusEl.textContent='再生終了';return;} timer=setTimeout(playCur,mode==='slow'?500:400);};player.play();}
+function pauseAudio(){player.pause();clearT();}function resumeAudio(){if(player.src)player.play();}function stopAudio(){clearT();seq=false;player.pause();player.currentTime=0;player.onended=null;update(false);}
+function prev(){stopAudio();idx=Math.max(0,idx-1);update(true);}function next(){stopAudio();idx=Math.min(normal.length-1,idx+1);update(true);}function toggleTr(open){document.querySelectorAll('details.tr').forEach(d=>d.open=open);}update(false);
+</script></body></html>
