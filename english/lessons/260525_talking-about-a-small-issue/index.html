@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Shadowing Day 4: Talking about a small issue</title>
+<style>
+:root {
+  --bg:#f6f7f8; --card:#fff; --line:#e6e8eb; --text:#222; --muted:#66717d;
+  --accent:#1f6feb; --chip:#eef5ff; --chip-border:#c8dcff;
+  --goal:#fff7df; --a-bg:#f3f8ff; --a-border:#9fc5ff; --b-bg:#f4fbf3; --b-border:#a8d8a8;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;
+  line-height:1.45;
+}
+header {
+  position:sticky; top:0; z-index:10; background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line); padding:8px 10px; backdrop-filter:blur(8px);
+}
+.wrap, main { max-width:980px; margin:0 auto; }
+h1 { font-size:17px; margin:0 0 6px; line-height:1.28; }
+.controls { display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+button, select {
+  border:1px solid #b9c2cc; background:#fff; border-radius:999px;
+  padding:5px 9px; font-size:12px; line-height:1.2;
+}
+button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+.status { font-size:12px; color:var(--muted); }
+main { padding:10px 8px 24px; }
+.card {
+  background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:10px 11px; margin-bottom:10px;
+}
+.goal { background:var(--goal); }
+h2 { font-size:15px; margin:0 0 5px; }
+.main-text { font-size:20px; line-height:1.36; margin:4px 0 2px; }
+.py { color:var(--muted); font-size:13.5px; line-height:1.32; margin:2px 0 5px; }
+.script { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.line { padding:9px 10px 8px; border-bottom:1px solid var(--line); scroll-margin-top:115px; }
+.line:last-child { border-bottom:none; }
+.line.A { background:var(--a-bg); border-left:5px solid var(--a-border); }
+.line.B { background:var(--b-bg); border-left:5px solid var(--b-border); }
+.line.current { box-shadow:inset 0 0 0 2px var(--accent); filter:saturate(1.08); }
+.line-top { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:3px; }
+.num { color:var(--muted); font-size:12px; min-width:22px; }
+.speaker { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:999px; font-weight:800; font-size:12px; }
+.speaker-A { background:#d9eaff; color:#0b4a97; }
+.speaker-B { background:#dff3df; color:#236b2a; }
+.mini-btn { padding:3px 8px; font-size:11.5px; }
+.gloss { display:flex; flex-wrap:wrap; gap:5px; margin-top:3px; }
+.chip {
+  display:inline-flex; align-items:center; border-radius:999px; padding:3px 8px;
+  font-size:12px; line-height:1.3; background:var(--chip); border:1px solid var(--chip-border);
+}
+.py-chip { color:var(--muted); margin-left:3px; }
+.muted-chip { background:rgba(255,255,255,.7); border-color:#ddd; color:var(--muted); }
+details.translation summary {
+  list-style:none; cursor:pointer; border:1px solid #ddd; border-radius:999px;
+  padding:3px 8px; font-size:12px; color:var(--accent); background:#fff;
+}
+details.translation summary::-webkit-details-marker { display:none; }
+details.translation div {
+  margin-top:5px; padding:6px 8px; border-radius:8px; background:rgba(255,255,255,.85);
+  border:1px solid rgba(0,0,0,.06); font-size:13.5px; line-height:1.45;
+}
+.focus {
+  display:inline-block; border:1px solid var(--chip-border); background:var(--chip);
+  border-radius:12px; padding:6px 8px; margin:3px; font-size:13px;
+}
+.focus summary { cursor:pointer; font-weight:600; }
+.focus-example { margin-top:5px; }
+.ja { color:var(--muted); margin-top:3px; }
+@media(max-width:640px) {
+  h1 { font-size:15px; }
+  button, select { font-size:11.5px; padding:4px 8px; }
+  .status { width:100%; }
+  main { padding:7px; }
+  .line { padding:8px 8px 7px; scroll-margin-top:125px; }
+  .main-text { font-size:19px; line-height:1.38; }
+  .py { font-size:13px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>English Shadowing Day 4: Talking about a small issue</h1>
+    <div class="controls">
+      <button class="primary" onclick="playAllLoop()">全体▶ループ</button>
+      <button onclick="pauseAudio()">一時停止</button>
+      <button onclick="resumeAudio()">再開</button>
+      <button onclick="stopAudio()">停止</button>
+      <button onclick="prevLine()">前</button>
+      <button onclick="nextLine()">次</button>
+      <button onclick="toggleTranslations(true)">訳 全表示</button>
+      <button onclick="toggleTranslations(false)">訳 非表示</button>
+      <label>速度
+        <select id="speedSelect" onchange="setSpeedFromSelect()">
+          <option value="0.5">0.5x</option>
+<option value="0.6">0.6x</option>
+<option value="0.7">0.7x</option>
+<option value="0.8">0.8x</option>
+<option value="0.9">0.9x</option>
+<option value="1.0" selected>1.0x</option>
+<option value="1.1">1.1x</option>
+<option value="1.2">1.2x</option>
+<option value="1.3">1.3x</option>
+<option value="1.4">1.4x</option>
+<option value="1.5">1.5x</option>
+<option value="1.6">1.6x</option>
+<option value="1.7">1.7x</option>
+<option value="1.8">1.8x</option>
+<option value="1.9">1.9x</option>
+<option value="2.0">2.0x</option>
+        </select>
+      </label>
+      <span class="status" id="status">現在 01 / 20</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="card goal">
+  <h2>今日のゴール</h2>
+  <div class="main-text">Maybe we should start with the simplest explanation and then check if the details still fit.</div>
+  
+  <button onclick="playSingle('audio/goal.mp3')">▶ ゴール</button>
+  <details class="translation"><summary>訳</summary><div>まず一番シンプルな説明から始めて、その後で細かい部分がまだ合うか確認した方がいいかもしれません。</div></details>
+</section>
+
+<section class="card">
+  <h2>使いたい表現</h2>
+  <details class="focus">
+  <summary>Maybe we should start with the simplest explanation.</summary>
+  <div class="focus-example">Maybe we should start with the simplest explanation.</div>
+  <div class="ja">まず一番シンプルな説明から始めた方がいいかもしれません。</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_01.mp3')">▶</button>
+</details><details class="focus">
+  <summary>We can separate the main message from the supporting details.</summary>
+  <div class="focus-example">We can separate the main message from the supporting details.</div>
+  <div class="ja">主なメッセージと補足的な詳細を分けられます。</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_02.mp3')">▶</button>
+</details><details class="focus">
+  <summary>This suggests a possible explanation.</summary>
+  <div class="focus-example">This suggests a possible explanation.</div>
+  <div class="ja">これは可能性のある説明を示唆しています。</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_03.mp3')">▶</button>
+</details><details class="focus">
+  <summary>We still need to check this part.</summary>
+  <div class="focus-example">We still need to check this part.</div>
+  <div class="ja">この部分はまだ確認する必要があります。</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_04.mp3')">▶</button>
+</details><details class="focus">
+  <summary>I’ll check if the flow is clear.</summary>
+  <div class="focus-example">I’ll check if the flow is clear.</div>
+  <div class="ja">流れが明確か確認します。</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_05.mp3')">▶</button>
+</details>
+</section>
+
+<section class="card">
+  <h2>今日口に残す表現</h2>
+  <ol><li>Maybe we should start with the simplest explanation.</li><li>This suggests a possible explanation.</li><li>We still need to check this part.</li></ol>
+</section>
+
+<section class="script">
+  <article class="line A" id="line-1">
+  <div class="line-top">
+    <span class="num">01</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(0)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>昨日のメモを見ていたんだけど、説明に少し問題がある気がする。</div></details>
+  </div>
+  <div class="main-text">I was looking at the notes from yesterday, and I think there’s a small issue with the explanation.</div>
+  
+  <div class="gloss"><span class="chip"><b>a small issue</b>：小さな問題、気になる点</span></div>
+</article><article class="line B" id="line-2">
+  <div class="line-top">
+    <span class="num">02</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(1)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>どんな問題？結果について？それとも説明の仕方の方？</div></details>
+  </div>
+  <div class="main-text">What kind of issue? Is it about the result, or more about how we explain it?</div>
+  
+  <div class="gloss"><span class="chip"><b>how we explain it</b>：それをどう説明するか</span></div>
+</article><article class="line A" id="line-3">
+  <div class="line-top">
+    <span class="num">03</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(2)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>説明の方だと思う。結果そのものは大丈夫そう。</div></details>
+  </div>
+  <div class="main-text">More about the explanation, I think. The result itself seems fine.</div>
+  
+  <div class="gloss"><span class="chip"><b>the result itself</b>：結果そのもの</span></div>
+</article><article class="line B" id="line-4">
+  <div class="line-top">
+    <span class="num">04</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(3)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>なるほど。主なポイントがまだ十分に明確じゃないのかも。</div></details>
+  </div>
+  <div class="main-text">I see. Maybe the main point is not clear enough yet.</div>
+  
+  <div class="gloss"><span class="chip"><b>the main point</b>：主なポイント</span><span class="chip"><b>clear enough</b>：十分に明確な</span></div>
+</article><article class="line A" id="line-5">
+  <div class="line-top">
+    <span class="num">05</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(4)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>私もそう思っていた。ゆっくり読めばわかるけど、追いやすい感じではない。</div></details>
+  </div>
+  <div class="main-text">That’s what I was thinking. I understand it when I read it slowly, but it doesn’t feel easy to follow.</div>
+  
+  <div class="gloss"><span class="chip"><b>easy to follow</b>：理解しやすい、話を追いやすい</span></div>
+</article><article class="line B" id="line-6">
+  <div class="line-top">
+    <span class="num">06</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(5)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それなら、まず一番シンプルな説明から始めた方がいいかも。</div></details>
+  </div>
+  <div class="main-text">Then maybe we should start with the simplest explanation.</div>
+  
+  <div class="gloss"><span class="chip"><b>start with the simplest explanation</b>：一番シンプルな説明から始める</span></div>
+</article><article class="line A" id="line-7">
+  <div class="line-top">
+    <span class="num">07</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(6)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それは妥当だね。シンプルな版でうまくいくなら、後から詳細を足せる。</div></details>
+  </div>
+  <div class="main-text">That sounds reasonable. If the simple version works, we can add details later.</div>
+  
+  <div class="gloss"><span class="chip"><b>That sounds reasonable</b>：それは妥当だと思う</span><span class="chip"><b>add details later</b>：後から詳細を足す</span></div>
+</article><article class="line B" id="line-8">
+  <div class="line-top">
+    <span class="num">08</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(7)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>その通り。最初の文にすべての詳細を入れる必要はないよ。</div></details>
+  </div>
+  <div class="main-text">Exactly. We don’t need to include every detail in the first sentence.</div>
+  
+  <div class="gloss"><span class="chip"><b>include every detail</b>：すべての詳細を入れる</span></div>
+</article><article class="line A" id="line-9">
+  <div class="line-top">
+    <span class="num">09</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(8)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>賛成。正確にしようとしていたけど、そのせいで文が重くなりすぎたと思う。</div></details>
+  </div>
+  <div class="main-text">I agree. I think I was trying to be precise, but it made the sentence too heavy.</div>
+  
+  <div class="gloss"><span class="chip"><b>precise</b>：正確な</span><span class="chip"><b>too heavy</b>：重すぎる、情報量が多すぎる</span></div>
+</article><article class="line B" id="line-10">
+  <div class="line-top">
+    <span class="num">10</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(9)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>主なメッセージと補足的な詳細を分けられるかもしれない。</div></details>
+  </div>
+  <div class="main-text">Maybe we can separate the main message from the supporting details.</div>
+  
+  <div class="gloss"><span class="chip"><b>separate A from B</b>：AとBを分ける</span><span class="chip"><b>supporting details</b>：補足的な詳細</span></div>
+</article><article class="line A" id="line-11">
+  <div class="line-top">
+    <span class="num">11</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(10)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それはいい指摘だね。主なメッセージを先に出して、詳細はそれを支える形にすればいい。</div></details>
+  </div>
+  <div class="main-text">That’s a good point. The main message should come first, and the details can support it.</div>
+  
+  <div class="gloss"><span class="chip"><b>support it</b>：それを支える</span></div>
+</article><article class="line B" id="line-12">
+  <div class="line-top">
+    <span class="num">12</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(11)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それから、その点を証明していると言う代わりに、その点を示唆していると言った方がいいかも。</div></details>
+  </div>
+  <div class="main-text">Also, instead of saying it proves the point, maybe say it suggests the point.</div>
+  
+  <div class="gloss"><span class="chip"><b>proves the point</b>：その点を証明する</span><span class="chip"><b>suggests the point</b>：その点を示唆する</span></div>
+</article><article class="line A" id="line-13">
+  <div class="line-top">
+    <span class="num">13</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(12)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>うん、その方が正確に感じる。データは有用だけど、それだけですべてを証明するわけではない。</div></details>
+  </div>
+  <div class="main-text">Yes, that feels more accurate. The data are useful, but they don’t prove everything by themselves.</div>
+  
+  <div class="gloss"><span class="chip"><b>more accurate</b>：より正確な</span><span class="chip"><b>by themselves</b>：それ自体で、それだけで</span></div>
+</article><article class="line B" id="line-14">
+  <div class="line-top">
+    <span class="num">14</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(13)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>そうだね。『これは可能性のある説明を示唆している』と言って、その後に限界点に触れられる。</div></details>
+  </div>
+  <div class="main-text">Right. We can say, “This suggests a possible explanation,” and then mention the limitation.</div>
+  
+  <div class="gloss"><span class="chip"><b>possible explanation</b>：可能性のある説明</span><span class="chip"><b>limitation</b>：限界点</span></div>
+</article><article class="line A" id="line-15">
+  <div class="line-top">
+    <span class="num">15</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(14)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それいいね。慎重だけど、弱すぎる感じではない。</div></details>
+  </div>
+  <div class="main-text">I like that. It sounds careful, but not too weak.</div>
+  
+  <div class="gloss"><span class="chip"><b>careful</b>：慎重な</span><span class="chip"><b>not too weak</b>：弱すぎない</span></div>
+</article><article class="line B" id="line-16">
+  <div class="line-top">
+    <span class="num">16</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(15)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それでディスカッションでは、『この部分はまだ確認する必要があります』と言える。</div></details>
+  </div>
+  <div class="main-text">And in the discussion, you can say, “We still need to check this part.”</div>
+  
+  <div class="gloss"><span class="chip"><b>We still need to check...</b>：まだ〜を確認する必要がある</span></div>
+</article><article class="line A" id="line-17">
+  <div class="line-top">
+    <span class="num">17</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(16)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それは役に立ちそう。限界点を理解していることを示せる。</div></details>
+  </div>
+  <div class="main-text">That would be useful. It shows that we know the limitation.</div>
+  
+  <div class="gloss"><span class="chip"><b>show that we know...</b>：〜を理解していることを示す</span></div>
+</article><article class="line B" id="line-18">
+  <div class="line-top">
+    <span class="num">18</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(17)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>つまり方針は、まずシンプルな説明、次に詳細、最後に限界点だね。</div></details>
+  </div>
+  <div class="main-text">So the plan is: simple explanation first, details second, limitation at the end.</div>
+  
+  <div class="gloss"><span class="chip"><b>the plan is...</b>：方針は〜です</span></div>
+</article><article class="line A" id="line-19">
+  <div class="line-top">
+    <span class="num">19</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(18)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それでいけるね。その順番で書き直して、読みやすくなるか見てみる。</div></details>
+  </div>
+  <div class="main-text">That works. I’ll rewrite it with that order and see if it reads better.</div>
+  
+  <div class="gloss"><span class="chip"><b>That works</b>：それでいける</span><span class="chip"><b>reads better</b>：読みやすくなる</span></div>
+</article><article class="line B" id="line-20">
+  <div class="line-top">
+    <span class="num">20</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(19)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>いいね。後で送ってくれたら、流れが明確か確認するよ。</div></details>
+  </div>
+  <div class="main-text">Sounds good. Send it to me later, and I’ll check if the flow is clear.</div>
+  
+  <div class="gloss"><span class="chip"><b>the flow is clear</b>：流れが明確である</span></div>
+</article>
+</section>
+</main>
+
+<audio id="player"></audio>
+
+<script>
+const files = [
+  "audio/line_01.mp3",
+  "audio/line_02.mp3",
+  "audio/line_03.mp3",
+  "audio/line_04.mp3",
+  "audio/line_05.mp3",
+  "audio/line_06.mp3",
+  "audio/line_07.mp3",
+  "audio/line_08.mp3",
+  "audio/line_09.mp3",
+  "audio/line_10.mp3",
+  "audio/line_11.mp3",
+  "audio/line_12.mp3",
+  "audio/line_13.mp3",
+  "audio/line_14.mp3",
+  "audio/line_15.mp3",
+  "audio/line_16.mp3",
+  "audio/line_17.mp3",
+  "audio/line_18.mp3",
+  "audio/line_19.mp3",
+  "audio/line_20.mp3"
+];
+
+const player = document.getElementById("player");
+const statusEl = document.getElementById("status");
+
+let currentIndex = 0;
+let isPlayingSequence = false;
+let loopAll = false;
+let currentSpeed = 1.0;
+let pauseMs = 400;
+let sequenceTimer = null;
+
+function setSpeedFromSelect() {
+  const select = document.getElementById("speedSelect");
+  currentSpeed = parseFloat(select.value);
+  player.playbackRate = currentSpeed;
+}
+
+function clearTimer() {
+  if (sequenceTimer) {
+    clearTimeout(sequenceTimer);
+    sequenceTimer = null;
+  }
+}
+
+function updateCurrentLine(scroll=false) {
+  document.querySelectorAll(".line").forEach((el, idx) => {
+    el.classList.toggle("current", idx === currentIndex);
+  });
+  statusEl.textContent = `現在 ${String(currentIndex + 1).padStart(2, "0")} / 20`;
+  if (scroll) {
+    const el = document.getElementById(`line-${currentIndex + 1}`);
+    if (el) el.scrollIntoView({behavior:"smooth", block:"center"});
+  }
+}
+
+function playFrom(index) {
+  clearTimer();
+  currentIndex = index;
+  loopAll = false;
+  isPlayingSequence = true;
+  playCurrent();
+}
+
+function playAllLoop() {
+  clearTimer();
+  currentIndex = 0;
+  loopAll = true;
+  isPlayingSequence = true;
+  playCurrent();
+}
+
+function playCurrent() {
+  if (!isPlayingSequence) return;
+
+  if (currentIndex >= files.length) {
+    if (loopAll) {
+      currentIndex = 0;
+    } else {
+      isPlayingSequence = false;
+      statusEl.textContent = "再生終了";
+      return;
+    }
+  }
+
+  updateCurrentLine(true);
+  player.src = files[currentIndex];
+  player.playbackRate = currentSpeed;
+  player.currentTime = 0;
+
+  player.onended = () => {
+    currentIndex += 1;
+    sequenceTimer = setTimeout(playCurrent, pauseMs);
+  };
+
+  player.play().catch(err => {
+    statusEl.textContent = "再生できません";
+    console.error(err);
+  });
+}
+
+function playSingle(src) {
+  clearTimer();
+  isPlayingSequence = false;
+  loopAll = false;
+  player.src = src;
+  player.playbackRate = currentSpeed;
+  player.currentTime = 0;
+  player.onended = null;
+  player.play().catch(err => console.error(err));
+}
+
+function pauseAudio() {
+  player.pause();
+  clearTimer();
+}
+
+function resumeAudio() {
+  if (player.src) {
+    player.playbackRate = currentSpeed;
+    player.play();
+  }
+}
+
+function stopAudio() {
+  clearTimer();
+  isPlayingSequence = false;
+  loopAll = false;
+  player.pause();
+  player.currentTime = 0;
+  player.onended = null;
+  updateCurrentLine(false);
+}
+
+function prevLine() {
+  stopAudio();
+  currentIndex = Math.max(0, currentIndex - 1);
+  updateCurrentLine(true);
+}
+
+function nextLine() {
+  stopAudio();
+  currentIndex = Math.min(files.length - 1, currentIndex + 1);
+  updateCurrentLine(true);
+}
+
+function toggleTranslations(open) {
+  document.querySelectorAll("details.translation").forEach(d => d.open = open);
+}
+
+setSpeedFromSelect();
+updateCurrentLine(false);
+</script>
+</body>
+</html>
