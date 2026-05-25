@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中国語音読教材 Day 6：雨の日に帰り方を相談する</title>
+<style>
+:root {
+  --bg:#f6f7f8; --card:#fff; --line:#e6e8eb; --text:#222; --muted:#66717d;
+  --accent:#1f6feb; --chip:#eef5ff; --chip-border:#c8dcff;
+  --goal:#fff7df; --a-bg:#f3f8ff; --a-border:#9fc5ff; --b-bg:#f4fbf3; --b-border:#a8d8a8;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;
+  line-height:1.45;
+}
+header {
+  position:sticky; top:0; z-index:10; background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line); padding:8px 10px; backdrop-filter:blur(8px);
+}
+.wrap, main { max-width:980px; margin:0 auto; }
+h1 { font-size:17px; margin:0 0 6px; line-height:1.28; }
+.controls { display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+button, select {
+  border:1px solid #b9c2cc; background:#fff; border-radius:999px;
+  padding:5px 9px; font-size:12px; line-height:1.2;
+}
+button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+.status { font-size:12px; color:var(--muted); }
+main { padding:10px 8px 24px; }
+.card {
+  background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:10px 11px; margin-bottom:10px;
+}
+.goal { background:var(--goal); }
+h2 { font-size:15px; margin:0 0 5px; }
+.main-text { font-size:20px; line-height:1.36; margin:4px 0 2px; }
+.py { color:var(--muted); font-size:13.5px; line-height:1.32; margin:2px 0 5px; }
+.script { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.line { padding:9px 10px 8px; border-bottom:1px solid var(--line); scroll-margin-top:115px; }
+.line:last-child { border-bottom:none; }
+.line.A { background:var(--a-bg); border-left:5px solid var(--a-border); }
+.line.B { background:var(--b-bg); border-left:5px solid var(--b-border); }
+.line.current { box-shadow:inset 0 0 0 2px var(--accent); filter:saturate(1.08); }
+.line-top { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:3px; }
+.num { color:var(--muted); font-size:12px; min-width:22px; }
+.speaker { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:999px; font-weight:800; font-size:12px; }
+.speaker-A { background:#d9eaff; color:#0b4a97; }
+.speaker-B { background:#dff3df; color:#236b2a; }
+.mini-btn { padding:3px 8px; font-size:11.5px; }
+.gloss { display:flex; flex-wrap:wrap; gap:5px; margin-top:3px; }
+.chip {
+  display:inline-flex; align-items:center; border-radius:999px; padding:3px 8px;
+  font-size:12px; line-height:1.3; background:var(--chip); border:1px solid var(--chip-border);
+}
+.py-chip { color:var(--muted); margin-left:3px; }
+.muted-chip { background:rgba(255,255,255,.7); border-color:#ddd; color:var(--muted); }
+details.translation summary {
+  list-style:none; cursor:pointer; border:1px solid #ddd; border-radius:999px;
+  padding:3px 8px; font-size:12px; color:var(--accent); background:#fff;
+}
+details.translation summary::-webkit-details-marker { display:none; }
+details.translation div {
+  margin-top:5px; padding:6px 8px; border-radius:8px; background:rgba(255,255,255,.85);
+  border:1px solid rgba(0,0,0,.06); font-size:13.5px; line-height:1.45;
+}
+.focus {
+  display:inline-block; border:1px solid var(--chip-border); background:var(--chip);
+  border-radius:12px; padding:6px 8px; margin:3px; font-size:13px;
+}
+.focus summary { cursor:pointer; font-weight:600; }
+.focus-example { margin-top:5px; }
+.ja { color:var(--muted); margin-top:3px; }
+@media(max-width:640px) {
+  h1 { font-size:15px; }
+  button, select { font-size:11.5px; padding:4px 8px; }
+  .status { width:100%; }
+  main { padding:7px; }
+  .line { padding:8px 8px 7px; scroll-margin-top:125px; }
+  .main-text { font-size:19px; line-height:1.38; }
+  .py { font-size:13px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>中国語音読教材 Day 6：雨の日に帰り方を相談する</h1>
+    <div class="controls">
+      <button class="primary" onclick="playAllLoop()">全体▶ループ</button>
+      <button onclick="pauseAudio()">一時停止</button>
+      <button onclick="resumeAudio()">再開</button>
+      <button onclick="stopAudio()">停止</button>
+      <button onclick="prevLine()">前</button>
+      <button onclick="nextLine()">次</button>
+      <button onclick="toggleTranslations(true)">訳 全表示</button>
+      <button onclick="toggleTranslations(false)">訳 非表示</button>
+      <label>速度
+        <select id="speedSelect" onchange="setSpeedFromSelect()">
+          <option value="0.5">0.5x</option>
+<option value="0.6">0.6x</option>
+<option value="0.7">0.7x</option>
+<option value="0.8">0.8x</option>
+<option value="0.9" selected>0.9x</option>
+<option value="1.0">1.0x</option>
+<option value="1.1">1.1x</option>
+<option value="1.2">1.2x</option>
+<option value="1.3">1.3x</option>
+<option value="1.4">1.4x</option>
+<option value="1.5">1.5x</option>
+<option value="1.6">1.6x</option>
+<option value="1.7">1.7x</option>
+<option value="1.8">1.8x</option>
+<option value="1.9">1.9x</option>
+<option value="2.0">2.0x</option>
+        </select>
+      </label>
+      <span class="status" id="status">現在 01 / 13</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="card goal">
+  <h2>今日のゴール</h2>
+  <div class="main-text">今天就别太勉强了，先找个不太麻烦的办法回去吧。</div>
+  <div class="py">Jīntiān jiù bié tài miǎnqiǎng le, xiān zhǎo gè bú tài máfan de bànfǎ huíqù ba.</div>
+  <button onclick="playSingle('audio/goal.mp3')">▶ ゴール</button>
+  <details class="translation"><summary>訳</summary><div>今日は無理しすぎず、まずあまり面倒ではない方法で帰ろう。</div></details>
+</section>
+
+<section class="card">
+  <h2>覚えたい表現</h2>
+  <details class="focus">
+  <summary>我还没决定怎么回去。</summary>
+  <div class="focus-example">我还没决定怎么回去。</div>
+  <div class="ja">どう帰るかまだ決めていません。</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_01.mp3')">▶</button>
+</details><details class="focus">
+  <summary>要不要先在楼下等一会儿？</summary>
+  <div class="focus-example">要不要先在楼下等一会儿？</div>
+  <div class="ja">先に下で少し待ちませんか？</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_02.mp3')">▶</button>
+</details><details class="focus">
+  <summary>没必要再折腾自己。</summary>
+  <div class="focus-example">没必要再折腾自己。</div>
+  <div class="ja">これ以上自分を振り回す必要はありません。</div>
+  <button class="mini-btn" onclick="playSingle('audio/focus_03.mp3')">▶</button>
+</details>
+</section>
+
+<section class="card">
+  <h2>今日口に残す表現</h2>
+  <ol><li>我还没决定怎么回去。</li><li>要不要先在楼下等一会儿？</li><li>没必要再折腾自己。</li></ol>
+</section>
+
+<section class="script">
+  <article class="line A" id="line-1">
+  <div class="line-top">
+    <span class="num">01</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(0)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>外の雨、だんだん強くなっているみたい。傘持ってきた？</div></details>
+  </div>
+  <div class="main-text">外面雨好像越来越大了，你带伞了吗？</div>
+  <div class="py">Wàimiàn yǔ hǎoxiàng yuè lái yuè dà le, nǐ dài sǎn le ma?</div>
+  <div class="gloss"><span class="chip"><b>越来越</b> <span class="py-chip">yuè lái yuè</span>：ますます〜になる</span></div>
+</article><article class="line B" id="line-2">
+  <div class="line-top">
+    <span class="num">02</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(1)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>持ってきたけど、小さい傘なんだ。風が強かったら、あまり十分じゃないかも。</div></details>
+  </div>
+  <div class="main-text">带了，不过是小伞。风大的话，可能不太够用。</div>
+  <div class="py">Dài le, búguò shì xiǎo sǎn. Fēng dà dehuà, kěnéng bú tài gòuyòng.</div>
+  <div class="gloss"><span class="chip"><b>够用</b> <span class="py-chip">gòuyòng</span>：用が足りる、十分使える</span></div>
+</article><article class="line A" id="line-3">
+  <div class="line-top">
+    <span class="num">03</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(2)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>どう帰るかまだ決めていない。駅まで歩くのは少し遠い。</div></details>
+  </div>
+  <div class="main-text">我还没决定怎么回去。走到车站有点远。</div>
+  <div class="py">Wǒ hái méi juédìng zěnme huíqù. Zǒu dào chēzhàn yǒudiǎn yuǎn.</div>
+  <div class="gloss"><span class="chip"><b>还没决定</b> <span class="py-chip">hái méi juédìng</span>：まだ決めていない</span></div>
+</article><article class="line B" id="line-4">
+  <div class="line-top">
+    <span class="num">04</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(3)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>先に下で少し待つ？雨が少し弱くなるかもしれないし。</div></details>
+  </div>
+  <div class="main-text">要不要先在楼下等一会儿？说不定雨会小一点。</div>
+  <div class="py">Yào bu yào xiān zài lóuxià děng yíhuìr? Shuōbudìng yǔ huì xiǎo yìdiǎn.</div>
+  <div class="gloss"><span class="chip"><b>说不定</b> <span class="py-chip">shuōbudìng</span>：もしかすると〜かもしれない</span></div>
+</article><article class="line A" id="line-5">
+  <div class="line-top">
+    <span class="num">05</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(4)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>それでもいいね。でも長く待ちすぎると、帰ってからもっと遅くなる。</div></details>
+  </div>
+  <div class="main-text">也可以。不过如果等太久，回去以后就更晚了。</div>
+  <div class="py">Yě kěyǐ. Búguò rúguǒ děng tài jiǔ, huíqù yǐhòu jiù gèng wǎn le.</div>
+  <div class="gloss"><span class="chip muted-chip">語注なし</span></div>
+</article><article class="line B" id="line-6">
+  <div class="line-top">
+    <span class="num">06</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(5)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>じゃあまずバスを見てみよう。歩くより便利かもしれない。</div></details>
+  </div>
+  <div class="main-text">那我们先看一下公交车吧。也许比走路方便。</div>
+  <div class="py">Nà wǒmen xiān kàn yíxià gōngjiāochē ba. Yěxǔ bǐ zǒulù fāngbiàn.</div>
+  <div class="gloss"><span class="chip"><b>也许</b> <span class="py-chip">yěxǔ</span>：たぶん、もしかすると</span></div>
+</article><article class="line A" id="line-7">
+  <div class="line-top">
+    <span class="num">07</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(6)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>バスがすぐ来るなら、かなりちょうどいいね。</div></details>
+  </div>
+  <div class="main-text">公交车如果马上来，那就挺合适的。</div>
+  <div class="py">Gōngjiāochē rúguǒ mǎshàng lái, nà jiù tǐng héshì de.</div>
+  <div class="gloss"><span class="chip"><b>合适</b> <span class="py-chip">héshì</span>：合っている、ちょうどいい</span></div>
+</article><article class="line B" id="line-8">
+  <div class="line-top">
+    <span class="num">08</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(7)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>調べてみたら、あと7分。バス停もここから遠くない。</div></details>
+  </div>
+  <div class="main-text">我查了一下，还有七分钟。站牌离这里也不远。</div>
+  <div class="py">Wǒ chá le yíxià, hái yǒu qī fēnzhōng. Zhànpái lí zhèlǐ yě bù yuǎn.</div>
+  <div class="gloss"><span class="chip"><b>站牌</b> <span class="py-chip">zhànpái</span>：バス停、停留所の標識</span></div>
+</article><article class="line A" id="line-9">
+  <div class="line-top">
+    <span class="num">09</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(8)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>じゃあバスにしよう。ずっと雨に濡れるより、数分多くかけた方がいい。</div></details>
+  </div>
+  <div class="main-text">那就坐公交吧。与其一路淋雨，不如多花几分钟。</div>
+  <div class="py">Nà jiù zuò gōngjiāo ba. Yǔqí yílù línyǔ, bùrú duō huā jǐ fēnzhōng.</div>
+  <div class="gloss"><span class="chip"><b>淋雨</b> <span class="py-chip">línyǔ</span>：雨に濡れる</span><span class="chip"><b>与其A，不如B</b> <span class="py-chip">yǔqí A, bùrú B</span>：AするよりBした方がいい</span></div>
+</article><article class="line B" id="line-10">
+  <div class="line-top">
+    <span class="num">10</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(9)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>私もそう思う。今日はもう十分疲れたし、これ以上自分を面倒に巻き込む必要はない。</div></details>
+  </div>
+  <div class="main-text">我也这么想。今天已经够累了，没必要再折腾自己。</div>
+  <div class="py">Wǒ yě zhème xiǎng. Jīntiān yǐjīng gòu lèi le, méi bìyào zài zhēteng zìjǐ.</div>
+  <div class="gloss"><span class="chip"><b>没必要</b> <span class="py-chip">méi bìyào</span>：〜する必要はない</span><span class="chip"><b>折腾</b> <span class="py-chip">zhēteng</span>：振り回す、面倒なことをする</span></div>
+</article><article class="line A" id="line-11">
+  <div class="line-top">
+    <span class="num">11</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(10)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>確かに。今日は無理しすぎず、まず無事に帰ることの方が大事だね。</div></details>
+  </div>
+  <div class="main-text">确实。今天就别太勉强了，先顺利回去比较重要。</div>
+  <div class="py">Quèshí. Jīntiān jiù bié tài miǎnqiǎng le, xiān shùnlì huíqù bǐjiào zhòngyào.</div>
+  <div class="gloss"><span class="chip"><b>顺利</b> <span class="py-chip">shùnlì</span>：順調に、無事に</span></div>
+</article><article class="line B" id="line-12">
+  <div class="line-top">
+    <span class="num">12</span>
+    <span class="speaker speaker-B">B</span>
+    <button class="mini-btn" onclick="playFrom(11)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>家に着いたら、まず温かいシャワーを浴びて、それからゆっくり他のことをしよう。</div></details>
+  </div>
+  <div class="main-text">到家以后，先洗个热水澡，再慢慢做别的事吧。</div>
+  <div class="py">Dào jiā yǐhòu, xiān xǐ gè rèshuǐzǎo, zài mànmàn zuò bié de shì ba.</div>
+  <div class="gloss"><span class="chip"><b>热水澡</b> <span class="py-chip">rèshuǐzǎo</span>：温かいシャワー、風呂</span></div>
+</article><article class="line A" id="line-13">
+  <div class="line-top">
+    <span class="num">13</span>
+    <span class="speaker speaker-A">A</span>
+    <button class="mini-btn" onclick="playFrom(12)">▶ ここから</button>
+    <details class="translation"><summary>訳</summary><div>いいね。今日の目標は、自分をこれ以上疲れさせないことだね。</div></details>
+  </div>
+  <div class="main-text">好。今天的目标就是别把自己弄得更累。</div>
+  <div class="py">Hǎo. Jīntiān de mùbiāo jiùshì bié bǎ zìjǐ nòng de gèng lèi.</div>
+  <div class="gloss"><span class="chip"><b>弄得</b> <span class="py-chip">nòng de</span>：〜な状態にする</span></div>
+</article>
+</section>
+</main>
+
+<audio id="player"></audio>
+
+<script>
+const files = [
+  "audio/line_01.mp3",
+  "audio/line_02.mp3",
+  "audio/line_03.mp3",
+  "audio/line_04.mp3",
+  "audio/line_05.mp3",
+  "audio/line_06.mp3",
+  "audio/line_07.mp3",
+  "audio/line_08.mp3",
+  "audio/line_09.mp3",
+  "audio/line_10.mp3",
+  "audio/line_11.mp3",
+  "audio/line_12.mp3",
+  "audio/line_13.mp3"
+];
+
+const player = document.getElementById("player");
+const statusEl = document.getElementById("status");
+
+let currentIndex = 0;
+let isPlayingSequence = false;
+let loopAll = false;
+let currentSpeed = 0.9;
+let pauseMs = 400;
+let sequenceTimer = null;
+
+function setSpeedFromSelect() {
+  const select = document.getElementById("speedSelect");
+  currentSpeed = parseFloat(select.value);
+  player.playbackRate = currentSpeed;
+}
+
+function clearTimer() {
+  if (sequenceTimer) {
+    clearTimeout(sequenceTimer);
+    sequenceTimer = null;
+  }
+}
+
+function updateCurrentLine(scroll=false) {
+  document.querySelectorAll(".line").forEach((el, idx) => {
+    el.classList.toggle("current", idx === currentIndex);
+  });
+  statusEl.textContent = `現在 ${String(currentIndex + 1).padStart(2, "0")} / 13`;
+  if (scroll) {
+    const el = document.getElementById(`line-${currentIndex + 1}`);
+    if (el) el.scrollIntoView({behavior:"smooth", block:"center"});
+  }
+}
+
+function playFrom(index) {
+  clearTimer();
+  currentIndex = index;
+  loopAll = false;
+  isPlayingSequence = true;
+  playCurrent();
+}
+
+function playAllLoop() {
+  clearTimer();
+  currentIndex = 0;
+  loopAll = true;
+  isPlayingSequence = true;
+  playCurrent();
+}
+
+function playCurrent() {
+  if (!isPlayingSequence) return;
+
+  if (currentIndex >= files.length) {
+    if (loopAll) {
+      currentIndex = 0;
+    } else {
+      isPlayingSequence = false;
+      statusEl.textContent = "再生終了";
+      return;
+    }
+  }
+
+  updateCurrentLine(true);
+  player.src = files[currentIndex];
+  player.playbackRate = currentSpeed;
+  player.currentTime = 0;
+
+  player.onended = () => {
+    currentIndex += 1;
+    sequenceTimer = setTimeout(playCurrent, pauseMs);
+  };
+
+  player.play().catch(err => {
+    statusEl.textContent = "再生できません";
+    console.error(err);
+  });
+}
+
+function playSingle(src) {
+  clearTimer();
+  isPlayingSequence = false;
+  loopAll = false;
+  player.src = src;
+  player.playbackRate = currentSpeed;
+  player.currentTime = 0;
+  player.onended = null;
+  player.play().catch(err => console.error(err));
+}
+
+function pauseAudio() {
+  player.pause();
+  clearTimer();
+}
+
+function resumeAudio() {
+  if (player.src) {
+    player.playbackRate = currentSpeed;
+    player.play();
+  }
+}
+
+function stopAudio() {
+  clearTimer();
+  isPlayingSequence = false;
+  loopAll = false;
+  player.pause();
+  player.currentTime = 0;
+  player.onended = null;
+  updateCurrentLine(false);
+}
+
+function prevLine() {
+  stopAudio();
+  currentIndex = Math.max(0, currentIndex - 1);
+  updateCurrentLine(true);
+}
+
+function nextLine() {
+  stopAudio();
+  currentIndex = Math.min(files.length - 1, currentIndex + 1);
+  updateCurrentLine(true);
+}
+
+function toggleTranslations(open) {
+  document.querySelectorAll("details.translation").forEach(d => d.open = open);
+}
+
+setSpeedFromSelect();
+updateCurrentLine(false);
+</script>
+</body>
+</html>
